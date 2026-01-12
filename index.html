@@ -1,22 +1,17 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Komari Studios</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Komari Studios. Creative studio for language and data design.">
+    <meta name="description" content="Komari Studios. Creative studio and design practice.">
     <style>
-     body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    background: #fcfcfc;
-    background-image: 
-        linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px),
-        linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px);
-    background-size: 40px 40px;
-    color: #1a1a1a;
-        }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Courier New', Courier, monospace;
+            background: linear-gradient(to bottom, #fdfbf7 0%, #f4ede4 100%);
+            color: #2c2c2c;
         }
         .container {
             max-width: 720px;
@@ -26,7 +21,7 @@
             transition: transform 0.1s ease;
         }
         img.logo {
-            max-width: 280px;
+            max-width: 480px;
             width: 100%;
             height: auto;
             margin-bottom: 40px;
@@ -59,10 +54,10 @@
 </head>
 <body>
     <div class="container">
-        <img src="KOMARI STUDIOS LOGO.png" alt="Komari Studios Logo" class="logo">
+        <img src="logo.png.PNG" alt="Komari Studios logo" class="logo">
         <h1>Komari Studios</h1>
         <p>
-            An independent creative studio focused on cultural localization and spatial data storytelling.
+            An independent creative studio focused on thoughtful design and spatial storytelling.
         </p>
         <div class="contact">
             Contact:
@@ -74,4 +69,14 @@
     </div>
     <script>
         const container = document.querySelector(".container");
-        if (window.matchMedia("(prefers-reduced-motion: r
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches === false) {
+            document.addEventListener("mousemove", function(event) {
+                const x = (event.clientX / window.innerWidth) - 0.5;
+                const y = (event.clientY / window.innerHeight) - 0.5;
+                container.style.transform =
+                    "translate(" + (x * 8) + "px, " + (y * 8) + "px)";
+            });
+        }
+    </script>
+</body>
+</html>
