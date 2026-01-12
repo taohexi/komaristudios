@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -21,11 +21,14 @@
             transition: transform 0.1s ease;
         }
         img.logo {
-            max-width: 480px;
-            width: 100%;
+            /* Make the logo larger and responsive:
+               - minimum 240px wide on very small screens
+               - preferred 66% of the container width
+               - maximum 720px on very large screens */
+            width: clamp(240px, 66%, 720px);
+            max-width: 100%;
             height: auto;
             margin-bottom: 20px;
-            max-height: 120px;
             object-fit: contain;
         }
         h1, p, .contact, footer {
