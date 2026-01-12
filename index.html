@@ -11,7 +11,7 @@
             padding: 0;
             font-family: 'Didot', 'Bodoni MT', serif;
             background-color: #fdfbf7;
-            color: #2c2c2c;
+            color: #2c2c2c; /* All text matches logo color */
         }
         .container {
             max-width: 720px;
@@ -28,6 +28,10 @@
             max-height: 120px;
             object-fit: contain;
         }
+        h1, p, .contact, footer {
+            color: #2c2c2c; /* Ensure all elements use the same color */
+            margin: 0 auto;
+        }
         h1 {
             font-size: 22px;
             font-weight: 500;
@@ -41,11 +45,19 @@
         }
         .contact {
             font-size: 16px;
+            margin-bottom: 36px;
+        }
+        .contact a {
+            color: #2c2c2c; /* Link matches logo color */
+            text-decoration: none;
+        }
+        .contact a:hover {
+            text-decoration: underline;
         }
         footer {
             margin-top: 96px;
             font-size: 14px;
-            color: #666666;
+            color: #2c2c2c; /* Footer matches logo color */
         }
         @media (prefers-reduced-motion: reduce) {
             .container {
@@ -62,8 +74,7 @@
             An independent creative studio focused on thoughtful language design and geospatial data storytelling.
         </p>
         <div class="contact">
-            Contact:
-            <a href="mailto:hello@komaristudios.com">hello@komaristudios.com</a>
+            Contact: <a href="mailto:hello@komaristudios.com">hello@komaristudios.com</a>
         </div>
         <footer>
             © 2026 Komari Studios LLC
@@ -71,12 +82,11 @@
     </div>
     <script>
         const container = document.querySelector(".container");
-        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches === false) {
+        if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
             document.addEventListener("mousemove", function(event) {
                 const x = (event.clientX / window.innerWidth) - 0.5;
                 const y = (event.clientY / window.innerHeight) - 0.5;
-                container.style.transform =
-                    "translate(" + (x * 8) + "px, " + (y * 8) + "px)";
+                container.style.transform = "translate(" + (x * 8) + "px, " + (y * 8) + "px)";
             });
         }
     </script>
