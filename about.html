@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -43,6 +43,25 @@
             line-height: 1.8;
             margin-bottom: 20px;
         }
+        .photo-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        .photo-container img {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        @media (max-width: 660px) {
+            .photo-container img {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
         footer {
             margin-top: 96px;
             font-size: 14px;
@@ -69,11 +88,10 @@
             We believe in the power of maps and words to tell compelling stories and create meaningful connections between people and places.
         </p>
         
-        <p>
         <div class="photo-container">
             <img src="Pink Temari.jpg" alt="Makiko">
-            <img src="GeoTemari.tif" alt="Jose">
-        </div>        </p>
+            <img src="GeoTemari.jpg" alt="Jose">
+        </div>
         
         <footer>
             © 2026 Komari Studios, LLC
