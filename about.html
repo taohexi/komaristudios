@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>About - Komari Studios</title>
-    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="KOMARI STUDIOS LOGO.png">
     <style>
         body {
@@ -45,21 +45,46 @@
         }
         .photo-container {
             display: flex;
-            gap: 20px;
+            gap: 40px;
             justify-content: center;
             margin: 40px 0;
             flex-wrap: wrap;
         }
-        .photo-container img {
-            width: 100px;
-            height: 100px;
+        .staff-member {
+            text-align: center;
+            max-width: 200px;
+        }
+        .staff-member img {
+            width: 200px;
+            height: 200px;
             object-fit: cover;
             border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        .staff-member h3 {
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: #280264;
+        }
+        .staff-member .title {
+            font-size: 14px;
+            font-style: italic;
+            margin-bottom: 12px;
+            color: #666666;
+        }
+        .staff-member .bio {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #280264;
         }
         @media (max-width: 660px) {
-            .photo-container img {
+            .staff-member img {
                 width: 150px;
                 height: 150px;
+            }
+            .staff-member {
+                max-width: 150px;
             }
         }
         footer {
@@ -75,7 +100,6 @@
         <nav>
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
-           
         </nav>
         
         <h1>About Komari Studios</h1>
@@ -89,8 +113,23 @@
         </p>
         
         <div class="photo-container">
-            <img src="Pink Temari.jpg" alt="Makiko">
-            <img src="GeoTemari.jpg" alt="Jose">
+            <div class="staff-member">
+                <img src="Pink Temari.jpg" alt="Makiko">
+                <h3>Makiko</h3>
+                <div class="title">Language Designer</div>
+                <div class="bio">
+                    [Makiko Mori, Ph.D. - Localization and Translation ]
+                </div>
+            </div>
+            
+            <div class="staff-member">
+                <img src="GeoTemari.jpg" alt="Jose">
+                <h3>Jose</h3>
+                <div class="title">Geospatial Analyst</div>
+                <div class="bio">
+                    [Jose Torres, M.Sc. & M.A. - Geographer and Community Planner]
+                </div>
+            </div>
         </div>
         
         <footer>
