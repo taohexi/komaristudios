@@ -1,111 +1,160 @@
  <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>K O M A R I&nbsp; S T U D I O S</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Komari Studios. Creative studio for art, design and storytelling.">
-    <link rel="icon" type="image/png" href="KOMARI STUDIOS LOGO.png">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Cal Sans', sans-serif;
-            background-color: #ffffff;
-            color: #280264;
-        }
-        .container {
-            max-width: 720px;
-            margin: 0 auto;
-            padding: 96px 24px;
-            text-align: center;
-            transition: transform 0.1s ease;
-        }
-        nav {
-            margin-bottom: 40px;
-        }
-        nav a {
-            color: #280264;
-            text-decoration: none;
-            margin: 0 20px;
-            font-size: 16px;
-            transition: opacity 0.3s;
-        }
-        nav a:hover {
-            opacity: 0.6;
-        }
-        img.logo {
-            /* Make the logo larger and responsive:
-               - minimum 240px wide on very small screens
-               - preferred 66% of the container width
-               - maximum 720px on very large screens */
-            width: clamp(240px, 66%, 720px);
-            max-width: 100%;
-            height: auto;
-            margin-bottom: 20px;
-            object-fit: contain;
-        }
-        h1, p, .contact, footer {
-            color: #280264;
-        }
-        h1 {
-            font-size: 22px;
-            font-weight: 500;
-            margin-bottom: 20px;
-            letter-spacing: 0.02em;
-        }
-        p {
-            font-size: 18px;
-            line-height: 1.6;
-            margin-bottom: 36px;
-        }
-        .contact {
-            font-size: 16px;
-            margin-bottom: 36px;
-        }
-        .contact a {
-            color: #280264;
-            text-decoration: none;
-        }
-        .contact a:hover {
-            text-decoration: underline;
-        }
-        footer {
-            margin-top: 96px;
-            font-size: 14px;
-            color: #280264;
-        }
-        @media (prefers-reduced-motion: reduce) {
-            .container {
-                transition: none;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Komari Studios. Creative studio for art, design and storytelling." />
+  <title>K O M A R I&nbsp; S T U D I O S</title>
+  <link rel="icon" type="image/png" href="KOMARI STUDIOS LOGO.png" />
+  <style>
+    :root {
+      --ink: #280264;
+      --bg: #ffffff;
+      --space-1: 12px;
+      --space-2: 20px;
+      --space-3: 32px;
+      --space-4: 48px;
+      --space-5: 72px;
+      --radius: 14px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 720px;
+      padding: clamp(48px, 8vh, 96px) 24px;
+      text-align: center;
+      transition: transform 0.1s ease;
+    }
+
+    header {
+      margin-bottom: var(--space-3);
+    }
+
+    img.logo {
+      width: min(420px, 70vw);
+      height: auto;
+      display: block;
+      margin: 0 auto var(--space-2);
+      object-fit: contain;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    p {
+      margin: var(--space-3) auto var(--space-3);
+      font-size: 18px;
+      line-height: 1.65;
+      max-width: 46ch;
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: var(--space-2);
+      margin-bottom: var(--space-5);
+    }
+
+    .btn, .link {
+      font-size: 16px;
+      text-decoration: none;
+      color: var(--ink);
+      padding: 10px 14px;
+      border-radius: var(--radius);
+    }
+
+    .btn {
+      border: 1px solid rgba(40, 2, 100, 0.28);
+      background: rgba(40, 2, 100, 0.04);
+    }
+
+    .btn:hover {
+      background: rgba(40, 2, 100, 0.08);
+    }
+
+    .contact {
+      font-size: 16px;
+      margin-top: var(--space-2);
+    }
+
+    a {
+      color: var(--ink);
+    }
+
+    a:hover {
+      opacity: 0.75;
+    }
+
+    a:focus-visible {
+      outline: 2px solid rgba(40, 2, 100, 0.65);
+      outline-offset: 3px;
+      border-radius: 8px;
+    }
+
+    footer {
+      margin-top: var(--space-4);
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .container { transition: none; }
+      a { transition: none; }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        
-        <img src="KOMARI STUDIOS LOGO.png" alt="Komari Studios logo" class="logo">
-        <h1>K O M A R I&nbsp; S T U D I O S</h1>
-        <p>
-            An independent creative studio focused on <br>mindful art, design, and storytelling.</br>
-        </p>
-        <div class="contact">
-            Contact: <a href="mailto:holakomaristudios@gmail.com">holakomaristudios@gmail.com</a>
-        </div>
-        <footer>
-            © 2026 Komari Studios, LLC
-        </footer>
+  <main class="container">
+    <header>
+      <img src="KOMARI STUDIOS LOGO.png" alt="Komari Studios logo" class="logo" />
+      <h1>K O M A R I&nbsp; S T U D I O S</h1>
+    </header>
+
+    <p>
+      An independent creative studio focused on mindful art, design, and storytelling.
+    </p>
+
+    <div class="actions">
+      <a class="btn" href="mailto:holakomaristudios@gmail.com">Email</a>
+      <a class="link" href="#work">Work</a>
     </div>
-    <script>
-        const container = document.querySelector(".container");
-        if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-            document.addEventListener("mousemove", function(event) {
-                const x = (event.clientX / window.innerWidth) - 0.5;
-                const y = (event.clientY / window.innerHeight) - 0.5;
-                container.style.transform = "translate(" + (x * 8) + "px, " + (y * 8) + "px)";
-            });
-        }
-    </script>
+
+    <section id="work" aria-label="Work preview">
+      <p style="font-size: 16px; max-width: 52ch; opacity: 0.95; margin-bottom: 0;">
+        Selected works and prints coming soon.
+      </p>
+    </section>
+
+    <footer>© 2026 Komari Studios, LLC</footer>
+  </main>
+
+  <script>
+    const container = document.querySelector(".container");
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.addEventListener("mousemove", function (event) {
+        const x = event.clientX / window.innerWidth - 0.5;
+        const y = event.clientY / window.innerHeight - 0.5;
+        container.style.transform = "translate(" + x * 8 + "px, " + y * 8 + "px)";
+      });
+    }
+  </script>
 </body>
 </html>
