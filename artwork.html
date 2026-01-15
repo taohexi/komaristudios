@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Komari Studios artwork gallery" />
+  <title>Komari Studios | Artwork</title>
+  <style>
+    :root{
+      --ink:#280264;
+      --bg:#ffffff;
+      --muted:rgba(40, 2, 100, 0.12);
+      --muted2:rgba(40, 2, 100, 0.06);
+      --radius:16px;
+    }
+
+    body{
+      margin:0;
+      color:var(--ink);
+      background:var(--bg);
+      font-family: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, Garamond, serif;
+    }
+
+    a{ color:var(--ink); }
+    a:hover{ opacity:0.75; }
+    a:focus-visible{
+      outline:2px solid rgba(40, 2, 100, 0.65);
+      outline-offset:3px;
+      border-radius:10px;
+    }
+
+    .page{
+      min-height:100svh;
+      display:flex;
+      flex-direction:column;
+    }
+
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:18px 20px;
+      border-bottom:1px solid var(--muted);
+    }
+
+    .brand{
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+      line-height:1.1;
+    }
+
+    .brand strong{
+      font-family: ui-monospace, "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size:14px;
+      letter-spacing:0.18em;
+      text-transform:uppercase;
+    }
+
+    .brand span{
+      font-size:14px;
+      opacity:0.9;
+    }
+
+    .toplinks{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      font-size:14px;
+    }
+
+    .stage{
+      flex:1;
+      display:grid;
+      grid-template-rows: 1fr auto;
+      padding:18px;
+      gap:14px;
+      max-width:1100px;
+      width:100%;
+      margin:0 auto;
+    }
+
+    .viewer{
+      position:relative;
+      border:1px solid var(--muted);
+      border-radius:var(--radius);
+      background:var(--muted2);
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:52svh;
+    }
+
+    .viewer img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      display:block;
+      user-select:none;
+      -webkit-user-drag:none;
+    }
+
+    .overlay{
+      position:absolute;
+      inset:auto 14px 14px 14px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      pointer-events:none;
+    }
+
+    .captionRow{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:12px;
+      pointer-events:auto;
+    }
+
+    .caption{
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid var(--muted);
+      background:rgba(255,255,255,0.82);
+      backdrop-filter: blur(8px);
+      max-width:72%;
+    }
+
+    .caption .title{
+      font-size:15px;
+      font-weight:600;
+      margin:0 0 2px 0;
+    }
+
+    .caption .meta{
+      font-size:13px;
+      opacity:0.9;
+      margin:0;
+    }
+
+    .controls{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      justify-content:flex-end;
+      pointer-events:auto;
+      flex-wrap:wrap;
+    }
+
+    button{
+      border:1px solid var(--muted);
+      background:rgba(255,255,255,0.82);
+      color:var(--ink);
+      border-radius:14px;
+      padding:10px 12px;
+      font-size:14px;
+      cursor:pointer;
+      backdrop-filter: blur(8px);
+    }
+
+    button:hover{ background:rgba(255,255,255,0.92); }
+    button:active{ transform: translateY(1px); }
+    button:focus-visible{
+      outline:2px solid rgba(40, 2, 100, 0.65);
+      outline-offset:3px;
+    }
+
+    .thumbs{
+      border:1px solid var(--muted);
+      border-radius:var(--radius);
+      background:rgba(255,255,255,0.6);
+      padding:10px;
+      overflow:auto;
+      display:flex;
+      gap:10px;
+      align-items:center;
+      scroll-snap-type:x mandatory;
+    }
+
+    .thumb{
+      scroll-snap-align:start;
+      border:1px solid var(--muted);
+      border-radius:14px;
+      background:rgba(255,255,255,0.8);
+      padding:6px;
+      cursor:pointer;
+      flex:0 0 auto;
+      width:92px;
+      height:72px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .thumb img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      border-radius:10px;
+      display:block;
+      user-select:none;
+      -webkit-user-drag:none;
+    }
+
+    .thumb[aria-current="true"]{
+      border-color: rgba(40, 2, 100, 0.55);
+      box-shadow: 0 0 0 2px rgba(40, 2, 100, 0.18) inset;
+    }
+
+    .hint{
+      font-size:13px;
+      opacity:0.85;
+      padding:0 2px;
+    }
+
+    @media (max-width: 720px){
+      .caption{ max-width:100%; }
+      .captionRow{ flex-direction:column; align-items:stretch; }
+      .controls{ justify-content:flex-start; }
+      .viewer{ min-height:46svh; }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      button:active{ transform:none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="topbar">
+      <div class="brand">
+        <strong>K O M A R I&nbsp; S T U D I O S</strong>
+        <span>Artwork</span>
+      </div>
+      <nav class="toplinks" aria-label="Page links">
+        <a href="index.html">Home</a>
+        <a href="mailto:holakomaristudios@gmail.com">Email</a>
+      </nav>
+    </div>
+
+    <main class="stage">
+      <section class="viewer" aria-label="Artwork viewer">
+        <img id="mainImage" alt="" />
+        <div class="overlay">
+          <div class="captionRow">
+            <div class="caption" aria-live="polite">
+              <p class="title" id="capTitle"></p>
+              <p class="meta" id="capMeta"></p>
+            </div>
+
+            <div class="controls" aria-label="Slideshow controls">
+              <button id="prevBtn" type="button" aria-label="Previous image">Prev</button>
+              <button id="playBtn" type="button" aria-label="Play slideshow">Play</button>
+              <button id="nextBtn" type="button" aria-label="Next image">Next</button>
+            </div>
+          </div>
+
+          <div class="hint" id="hintText">
+            Tip. Use left and right arrow keys, space toggles play, swipe on mobile.
+          </div>
+        </div>
+      </section>
+
+      <section class="thumbs" id="thumbs" aria-label="Thumbnails"></section>
+    </main>
+  </div>
+
+  <script>
+    /*
+      Put your images in the same folder as this file, then list them here.
+      If your files are in a folder later, change src to "images/filename.jpg".
+    */
+    const artworks = [
+      { src: "Slide1.PNG", title: "Untitled 1", meta: "2026" },
+      { src: "logo.png.PNG", title: "Komari mark", meta: "2026" }
+      // Add more, example:
+      // { src: "my_art_01.jpg", title: "Piece name", meta: "Ink on paper, 2025" }
+    ];
+
+    const mainImage = document.getElementById("mainImage");
+    const capTitle = document.getElementById("capTitle");
+    const capMeta = document.getElementById("capMeta");
+    const thumbsEl = document.getElementById("thumbs");
+
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    const playBtn = document.getElementById("playBtn");
+
+    let index = 0;
+    let timer = null;
+    const intervalMs = 4500;
+
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function clampIndex(i){
+      const n = artworks.length;
+      return (i % n + n) % n;
+    }
+
+    function setImage(i, fromUser){
+      if (!artworks.length) return;
+      index = clampIndex(i);
+
+      const item = artworks[index];
+      mainImage.src = item.src;
+      mainImage.alt = item.title ? item.title : "Artwork image";
+
+      capTitle.textContent = item.title || "";
+      capMeta.textContent = item.meta || "";
+
+      updateThumbCurrent();
+      if (fromUser) stop();
+    }
+
+    function buildThumbs(){
+      thumbsEl.innerHTML = "";
+      artworks.forEach((item, i) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "thumb";
+        btn.setAttribute("aria-label", item.title ? ("Open " + item.title) : "Open artwork");
+        btn.addEventListener("click", () => setImage(i, true));
+
+        const img = document.createElement("img");
+        img.src = item.src;
+        img.alt = item.title || "Artwork thumbnail";
+        btn.appendChild(img);
+
+        thumbsEl.appendChild(btn);
+      });
+      updateThumbCurrent();
+    }
+
+    function updateThumbCurrent(){
+      const nodes = thumbsEl.querySelectorAll(".thumb");
+      nodes.forEach((n, i) => n.setAttribute("aria-current", i === index ? "true" : "false"));
+    }
+
+    function next(fromUser){ setImage(index + 1, fromUser); }
+    function prev(fromUser){ setImage(index - 1, fromUser); }
+
+    function play(){
+      if (prefersReducedMotion) return;
+      if (timer) return;
+      playBtn.textContent = "Pause";
+      playBtn.setAttribute("aria-label", "Pause slideshow");
+      timer = window.setInterval(() => setImage(index + 1, false), intervalMs);
+    }
+
+    function stop(){
+      if (!timer) {
+        playBtn.textContent = "Play";
+        playBtn.setAttribute("aria-label", "Play slideshow");
+        return;
+      }
+      window.clearInterval(timer);
+      timer = null;
+      playBtn.textContent = "Play";
+      playBtn.setAttribute("aria-label", "Play slideshow");
+    }
+
+    function togglePlay(){
+      if (timer) stop();
+      else play();
+    }
+
+    prevBtn.addEventListener("click", () => prev(true));
+    nextBtn.addEventListener("click", () => next(true));
+    playBtn.addEventListener("click", () => togglePlay());
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") prev(true);
+      if (e.key === "ArrowRight") next(true);
+      if (e.key === " ") {
+        e.preventDefault();
+        togglePlay();
+      }
+    });
+
+    // Swipe support
+    let touchStartX = null;
+    let touchStartY = null;
+
+    function onTouchStart(e){
+      const t = e.touches && e.touches[0];
+      if (!t) return;
+      touchStartX = t.clientX;
+      touchStartY = t.clientY;
+    }
+
+    function onTouchEnd(e){
+      if (touchStartX === null || touchStartY === null) return;
+      const t = e.changedTouches && e.changedTouches[0];
+      if (!t) return;
+
+      const dx = t.clientX - touchStartX;
+      const dy = t.clientY - touchStartY;
+
+      touchStartX = null;
+      touchStartY = null;
+
+      if (Math.abs(dx) < 40) return;
+      if (Math.abs(dy) > 80) return;
+
+      if (dx < 0) next(true);
+      else prev(true);
+    }
+
+    const viewer = document.querySelector(".viewer");
+    viewer.addEventListener("touchstart", onTouchStart, { passive: true });
+    viewer.addEventListener("touchend", onTouchEnd, { passive: true });
+
+    // Init
+    buildThumbs();
+    setImage(0, false);
+    stop();
+  </script>
+</body>
+</html>
