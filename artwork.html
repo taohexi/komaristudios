@@ -4,21 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Komari Studios artwork gallery" />
+  <meta name="color-scheme" content="light" />
   <title>Komari Studios | Artwork</title>
+  <link rel="icon" type="image/png" href="KOMARI%20STUDIOS%20LOGO.png" />
   <style>
     :root{
       --ink:#280264;
       --bg:#ffffff;
       --muted:rgba(40, 2, 100, 0.12);
       --muted2:rgba(40, 2, 100, 0.06);
-      --radius:16px;
+      --radius:14px;
     }
 
     body{
       margin:0;
       color:var(--ink);
       background:var(--bg);
-      font-family: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, Garamond, serif;
+      font-family: ui-sans-serif, "Avenir Next", Avenir, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
 
     a{ color:var(--ink); }
@@ -74,7 +78,7 @@
     .stage{
       flex:1;
       display:grid;
-      grid-template-rows: 1fr auto;
+      grid-template-rows: 1fr auto auto;
       padding:18px;
       gap:14px;
       max-width:1100px;
@@ -133,6 +137,7 @@
       font-size:15px;
       font-weight:600;
       margin:0 0 2px 0;
+      font-family: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, Garamond, serif;
     }
 
     .caption .meta{
@@ -159,6 +164,7 @@
       font-size:14px;
       cursor:pointer;
       backdrop-filter: blur(8px);
+      font-family: inherit;
     }
 
     button:hover{ background:rgba(255,255,255,0.92); }
@@ -216,11 +222,120 @@
       padding:0 2px;
     }
 
+    .srOnly{
+      position:absolute;
+      width:1px;
+      height:1px;
+      padding:0;
+      margin:-1px;
+      overflow:hidden;
+      clip:rect(0,0,0,0);
+      white-space:nowrap;
+      border:0;
+    }
+
+    .gridWrap{
+      border:1px solid var(--muted);
+      border-radius:var(--radius);
+      background:rgba(255,255,255,0.6);
+      padding:12px;
+    }
+
+    .gridHeader{
+      display:flex;
+      align-items:baseline;
+      justify-content:space-between;
+      gap:12px;
+      margin:0 0 10px 0;
+      padding:0 2px;
+    }
+
+    .gridHeader h2{
+      margin:0;
+      font-size:14px;
+      letter-spacing:0.06em;
+      text-transform:uppercase;
+      font-family: ui-monospace, "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      opacity:0.9;
+    }
+
+    .gridHeader p{
+      margin:0;
+      font-size:13px;
+      opacity:0.85;
+    }
+
+    .grid{
+      display:grid;
+      gap:12px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .card{
+      width:100%;
+      border:1px solid var(--muted);
+      border-radius:14px;
+      background:rgba(255,255,255,0.82);
+      padding:10px;
+      cursor:pointer;
+      text-align:left;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+
+    .card[aria-current="true"]{
+      border-color: rgba(40, 2, 100, 0.55);
+      box-shadow: 0 0 0 2px rgba(40, 2, 100, 0.18) inset;
+    }
+
+    .cardImg{
+      width:100%;
+      aspect-ratio: 4 / 3;
+      border-radius:10px;
+      overflow:hidden;
+      background:var(--muted2);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .cardImg img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      user-select:none;
+      -webkit-user-drag:none;
+    }
+
+    .cardTitle{
+      margin:0;
+      font-size:14px;
+      font-weight:600;
+      font-family: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, Garamond, serif;
+    }
+
+    .cardMeta{
+      margin:0;
+      font-size:12px;
+      opacity:0.85;
+    }
+
+    @media (max-width: 980px){
+      .grid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+
     @media (max-width: 720px){
       .caption{ max-width:100%; }
       .captionRow{ flex-direction:column; align-items:stretch; }
       .controls{ justify-content:flex-start; }
       .viewer{ min-height:46svh; }
+      .grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 420px){
+      .grid{ grid-template-columns: 1fr; }
     }
 
     @media (prefers-reduced-motion: reduce){
@@ -237,7 +352,7 @@
       </div>
       <nav class="toplinks" aria-label="Page links">
         <a href="index.html">Home</a>
-        <a href="mailto:holakomaristudios@gmail.com">Email</a>
+        <a href="mailto:holakomaristudios@gmail.com">Contact</a>
       </nav>
     </div>
 
@@ -258,32 +373,35 @@
             </div>
           </div>
 
-          <div class="hint" id="hintText">
+          <div class="hint">
             Tip. Use left and right arrow keys, space toggles play, swipe on mobile.
           </div>
         </div>
       </section>
 
       <section class="thumbs" id="thumbs" aria-label="Thumbnails"></section>
+
+      <section class="gridWrap" aria-label="All works">
+        <div class="gridHeader">
+          <h2>All Works</h2>
+          <p>Tap any piece to open it above.</p>
+        </div>
+        <div class="grid" id="grid"></div>
+      </section>
     </main>
   </div>
 
   <script>
-    /*
-      Put your images in the same folder as this file, then list them here.
-      If your files are in a folder later, change src to "images/filename.jpg".
-    */
     const artworks = [
       { src: "GeoTemari.jpg", title: "GeoTemari", meta: "2026" },
-      { src: "Pink Temari.jpg", title: "RosaTemari", meta: "2026" }
-      // Add more, example:
-      // { src: "my_art_01.jpg", title: "Piece name", meta: "Ink on paper, 2025" }
+      { src: "Pink%20Temari.jpg", title: "RosaTemari", meta: "2026" }
     ];
 
     const mainImage = document.getElementById("mainImage");
     const capTitle = document.getElementById("capTitle");
     const capMeta = document.getElementById("capMeta");
     const thumbsEl = document.getElementById("thumbs");
+    const gridEl = document.getElementById("grid");
 
     const prevBtn = document.getElementById("prevBtn");
     const nextBtn = document.getElementById("nextBtn");
@@ -312,6 +430,7 @@
       capMeta.textContent = item.meta || "";
 
       updateThumbCurrent();
+      updateGridCurrent();
       if (fromUser) stop();
     }
 
@@ -334,8 +453,47 @@
       updateThumbCurrent();
     }
 
+    function buildGrid(){
+      gridEl.innerHTML = "";
+      artworks.forEach((item, i) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "card";
+        btn.setAttribute("aria-label", item.title ? ("Open " + item.title) : "Open artwork");
+        btn.addEventListener("click", () => setImage(i, true));
+
+        const imgWrap = document.createElement("div");
+        imgWrap.className = "cardImg";
+
+        const img = document.createElement("img");
+        img.src = item.src;
+        img.alt = item.title || "Artwork preview";
+        imgWrap.appendChild(img);
+
+        const title = document.createElement("p");
+        title.className = "cardTitle";
+        title.textContent = item.title || "";
+
+        const meta = document.createElement("p");
+        meta.className = "cardMeta";
+        meta.textContent = item.meta || "";
+
+        btn.appendChild(imgWrap);
+        btn.appendChild(title);
+        btn.appendChild(meta);
+
+        gridEl.appendChild(btn);
+      });
+      updateGridCurrent();
+    }
+
     function updateThumbCurrent(){
       const nodes = thumbsEl.querySelectorAll(".thumb");
+      nodes.forEach((n, i) => n.setAttribute("aria-current", i === index ? "true" : "false"));
+    }
+
+    function updateGridCurrent(){
+      const nodes = gridEl.querySelectorAll(".card");
       nodes.forEach((n, i) => n.setAttribute("aria-current", i === index ? "true" : "false"));
     }
 
@@ -380,7 +538,6 @@
       }
     });
 
-    // Swipe support
     let touchStartX = null;
     let touchStartY = null;
 
@@ -413,8 +570,13 @@
     viewer.addEventListener("touchstart", onTouchStart, { passive: true });
     viewer.addEventListener("touchend", onTouchEnd, { passive: true });
 
-    // Init
+    mainImage.addEventListener("error", () => {
+      capTitle.textContent = "Image not found";
+      capMeta.textContent = "Check the filename and its exact capitalization.";
+    });
+
     buildThumbs();
+    buildGrid();
     setImage(0, false);
     stop();
   </script>
