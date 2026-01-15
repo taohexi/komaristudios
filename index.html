@@ -1,11 +1,12 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Komari Studios. Creative studio for art, design and storytelling." />
+  <meta name="color-scheme" content="light" />
   <title>K O M A R I&nbsp; S T U D I O S</title>
-  <link rel="icon" type="image/png" href="KOMARI STUDIOS LOGO.png" />
+  <link rel="icon" type="image/png" href="KOMARI%20STUDIOS%20LOGO.png" />
   <style>
     :root {
       --ink: #280264;
@@ -22,11 +23,13 @@
       margin: 0;
       background: var(--bg);
       color: var(--ink);
-     font-family: ui-sans-serif, "Avenir Next", Avenir, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-family: ui-sans-serif, "Avenir Next", Avenir, "Helvetica Neue", Helvetica, Arial, sans-serif;
       min-height: 100svh;
       display: flex;
       align-items: center;
       justify-content: center;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
 
     .container {
@@ -79,6 +82,9 @@
       color: var(--ink);
       padding: 10px 14px;
       border-radius: var(--radius);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .btn {
@@ -88,11 +94,6 @@
 
     .btn:hover {
       background: rgba(40, 2, 100, 0.08);
-    }
-
-    .contact {
-      font-size: 16px;
-      margin-top: var(--space-2);
     }
 
     a {
@@ -117,14 +118,13 @@
 
     @media (prefers-reduced-motion: reduce) {
       .container { transition: none; }
-      a { transition: none; }
     }
   </style>
 </head>
 <body>
   <main class="container">
     <header>
-      <img src="KOMARI STUDIOS LOGO.png" alt="Komari Studios logo" class="logo" />
+      <img src="KOMARI%20STUDIOS%20LOGO.png" alt="Komari Studios logo" class="logo" />
       <h1>K O M A R I&nbsp; S T U D I O S</h1>
     </header>
 
@@ -132,10 +132,9 @@
       An independent creative studio focused on mindful art, design, and storytelling.
     </p>
 
-    <div class="actions">
-      <a class="link" href="#work">artwork</a>
-      <a class="link" href="mailto:holakomaristudios@gmail.com">contact</a>
-
+    <div class="actions" aria-label="Primary actions">
+      <a class="btn" href="artwork.html">Artwork</a>
+      <a class="link" href="mailto:holakomaristudios@gmail.com">Contact</a>
     </div>
 
     <section id="work" aria-label="Work preview">
@@ -144,17 +143,30 @@
       </p>
     </section>
 
-    <footer>© 2026 Komari Studios, LLC</footer>
+    <footer>© <span id="year"></span> Komari Studios, LLC</footer>
   </main>
 
   <script>
     const container = document.querySelector(".container");
-    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const year = document.getElementById("year");
+    if (year) year.textContent = String(new Date().getFullYear());
+
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (container && !reduced) {
+      let rafId = 0;
+      let lastX = 0;
+      let lastY = 0;
+
+      function applyTransform() {
+        rafId = 0;
+        container.style.transform = "translate(" + lastX * 8 + "px, " + lastY * 8 + "px)";
+      }
+
       document.addEventListener("mousemove", function (event) {
-        const x = event.clientX / window.innerWidth - 0.5;
-        const y = event.clientY / window.innerHeight - 0.5;
-        container.style.transform = "translate(" + x * 8 + "px, " + y * 8 + "px)";
-      });
+        lastX = event.clientX / window.innerWidth - 0.5;
+        lastY = event.clientY / window.innerHeight - 0.5;
+        if (!rafId) rafId = window.requestAnimationFrame(applyTransform);
+      }, { passive: true });
     }
   </script>
 </body>
