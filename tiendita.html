@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Komari Studios shop test item." />
+  <title>Komari Studios | Shop</title>
+
+  <style>
+    :root {
+      --ink: #280264;
+      --bg: #ffffff;
+      --muted: #6b6b6b;
+      --card: #f6f4fb;
+      --radius: 18px;
+      --space-1: 12px;
+      --space-2: 20px;
+      --space-3: 32px;
+      --max: 820px;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.5;
+    }
+
+    header {
+      padding: var(--space-2);
+      border-bottom: 1px solid rgba(40, 2, 100, 0.12);
+    }
+
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 var(--space-2);
+    }
+
+    .brand {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: var(--space-2);
+      flex-wrap: wrap;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: 18px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .brand a {
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .brand a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      padding: var(--space-3) 0;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(40, 2, 100, 0.12);
+      border-radius: var(--radius);
+      padding: var(--space-3);
+    }
+
+    h2 {
+      margin: 0 0 var(--space-1) 0;
+      font-size: 22px;
+      letter-spacing: 0.02em;
+    }
+
+    p {
+      margin: 0 0 var(--space-2) 0;
+      color: var(--muted);
+    }
+
+    .buy {
+      display: flex;
+      justify-content: center;
+      padding-top: var(--space-2);
+    }
+
+    footer {
+      padding: var(--space-2);
+      border-top: 1px solid rgba(40, 2, 100, 0.12);
+      color: var(--muted);
+      font-size: 13px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="wrap brand">
+      <h1>Komari Studios</h1>
+      <a href="/">Back to home</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="card">
+      <h2>Test item</h2>
+      <p>This is a test purchase page powered by Stripe.</p>
+
+      <div class="buy">
+        <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+
+        <stripe-buy-button
+          buy-button-id="buy_btn_1SsB7i00GBpk7t8o4BJEmjjZ"
+          publishable-key="pk_live_51SsANa00GBpk7t8oAn2OkcBRNC8VFXCqMs8x1ZPUtgbyww8cs78QyPj2yA6y6HtK7ZFzjh30tvtxYXjfXplnTlpa00WAMnuigT"
+        >
+        </stripe-buy-button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      If you have any issues checking out, please refresh the page and try again.
+    </div>
+  </footer>
+</body>
+</html>
