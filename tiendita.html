@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -10,26 +10,22 @@
     :root {
       --bg: #fbfbfc;
       --paper: #ffffff;
-      --ink: #241a3a;
-      --muted: #6e6a79;
-      --hairline: rgba(36, 26, 58, 0.10);
-      --soft: rgba(36, 26, 58, 0.05);
+      --ink: #221a33;
+      --muted: #6f6b7a;
+      --hairline: rgba(34, 26, 51, 0.10);
+      --soft: rgba(34, 26, 51, 0.05);
       --radius: 16px;
-      --max: 760px;
+      --max: 720px;
     }
 
     * { box-sizing: border-box; }
-
-    html, body {
-      height: 100%;
-    }
 
     body {
       margin: 0;
       font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
       background: var(--bg);
       color: var(--ink);
-      line-height: 1.5;
+      line-height: 1.55;
       letter-spacing: 0.01em;
     }
 
@@ -45,31 +41,29 @@
     .wrap {
       max-width: var(--max);
       margin: 0 auto;
-      padding: 28px 18px;
+      padding: 32px 18px;
     }
 
     header {
-      padding: 18px 0 8px 0;
-    }
-
-    .top {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: space-between;
-      gap: 14px;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
     }
 
     .brand {
       display: flex;
       flex-direction: column;
-      gap: 2px;
+      gap: 4px;
     }
 
     .brand .name {
-      font-size: 14px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
       margin: 0;
+      font-size: 13px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
     }
 
     .brand .sub {
@@ -80,40 +74,32 @@
 
     .nav {
       display: flex;
-      gap: 12px;
+      align-items: center;
+      gap: 10px;
       font-size: 13px;
       color: var(--muted);
     }
 
-    .nav a {
+    .pill {
+      display: inline-flex;
+      align-items: center;
       padding: 8px 10px;
       border-radius: 999px;
-      background: transparent;
-      border: 1px solid transparent;
-    }
-
-    .nav a:hover {
-      text-decoration: none;
-      border-color: var(--hairline);
+      border: 1px solid var(--hairline);
       background: var(--paper);
     }
 
-    .divider {
-      height: 1px;
-      background: var(--hairline);
-      margin: 14px 0 0 0;
-    }
-
-    main {
-      padding: 22px 0 0 0;
+    .pill:hover {
+      text-decoration: none;
+      background: var(--soft);
     }
 
     .card {
       background: var(--paper);
       border: 1px solid var(--hairline);
       border-radius: var(--radius);
-      padding: 18px 18px 16px 18px;
-      box-shadow: 0 6px 20px rgba(36, 26, 58, 0.05);
+      padding: 18px;
+      box-shadow: 0 8px 24px rgba(34, 26, 51, 0.06);
     }
 
     .titleRow {
@@ -122,7 +108,7 @@
       justify-content: space-between;
       gap: 10px;
       flex-wrap: wrap;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
 
     h1 {
@@ -150,28 +136,19 @@
     .buyArea {
       display: flex;
       justify-content: center;
-      padding-top: 6px;
+      padding: 8px 0 2px 0;
     }
 
     footer {
-      padding: 14px 0 0 0;
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    .fineprint {
-      border-top: 1px solid var(--hairline);
-      margin-top: 18px;
+      margin-top: 14px;
       padding-top: 12px;
+      border-top: 1px solid var(--hairline);
+      font-size: 12px;
+      color: var(--muted);
     }
 
-    .fineprint p {
+    footer p {
       margin: 0;
-    }
-
-    @media (min-width: 700px) {
-      .wrap { padding: 34px 22px; }
-      .card { padding: 20px 22px 18px 22px; }
     }
   </style>
 </head>
@@ -179,17 +156,14 @@
 <body>
   <div class="wrap">
     <header>
-      <div class="top">
-        <div class="brand">
-          <p class="name">Komari Studios</p>
-          <p class="sub">Simple checkout, powered by Stripe</p>
-        </div>
-
-        <nav class="nav" aria-label="Primary">
-          <a href="/">Home</a>
-        </nav>
+      <div class="brand">
+        <p class="name">Komari Studios</p>
+        <p class="sub">Shop</p>
       </div>
-      <div class="divider"></div>
+
+      <nav class="nav" aria-label="Primary">
+        <a class="pill" href="/">Home</a>
+      </nav>
     </header>
 
     <main>
@@ -199,21 +173,21 @@
           <span class="tag">Secure checkout</span>
         </div>
 
-        <p class="desc">
-          Use this page to run a quick purchase test.
-        </p>
+        <p class="desc">Use this page to run a quick purchase test.</p>
 
         <div class="buyArea">
-          <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+          <script async
+            src="https://js.stripe.com/v3/buy-button.js">
+          </script>
 
           <stripe-buy-button
             buy-button-id="buy_btn_1SsB7i00GBpk7t8o4BJEmjjZ"
-            publishable-key="pk_live_51SsANa00GBpk7t8o4BJEmjjZ"
+            publishable-key="pk_live_51SsANa00GBpk7t8oAn2OkcBRNC8VFXCqMs8x1ZPUtgbyww8cs78QyPj2yA6y6HtK7ZFzjh30tvtxYXjfXplnTlpa00WAMnuigT"
           >
           </stripe-buy-button>
         </div>
 
-        <footer class="fineprint">
+        <footer>
           <p>If checkout does not load, refresh the page and try again.</p>
         </footer>
       </section>
