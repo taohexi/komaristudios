@@ -3,171 +3,202 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Komari Studios. Creative studio for art, design and storytelling." />
-  <meta name="color-scheme" content="light" />
-  <title>K O M A R I&nbsp; S T U D I O S</title>
-  <link rel="icon" type="image/png" href="KOMARI%20STUDIOS%20LOGO.png" />
+  <meta name="description" content="Komari Studios shop test item." />
+  <title>Komari Studios | Shop</title>
+
   <style>
     :root {
-      --ink: #280264;
-      --bg: #ffffff;
-      --space-1: 12px;
-      --space-2: 20px;
-      --space-3: 32px;
-      --space-4: 48px;
-      --space-5: 72px;
-      --radius: 14px;
+      --bg: #fbfbfc;
+      --paper: #ffffff;
+      --ink: #221a33;
+      --muted: #6f6b7a;
+      --hairline: rgba(34, 26, 51, 0.10);
+      --soft: rgba(34, 26, 51, 0.05);
+      --radius: 16px;
+      --max: 720px;
     }
+
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
       background: var(--bg);
       color: var(--ink);
-      font-family: ui-sans-serif, "Avenir Next", Avenir, "Helvetica Neue", Helvetica, Arial, sans-serif;
-      min-height: 100svh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
+      line-height: 1.55;
+      letter-spacing: 0.01em;
     }
 
-    .container {
-      width: 100%;
-      max-width: 720px;
-      padding: clamp(48px, 8vh, 96px) 24px;
-      text-align: center;
-      transition: transform 0.1s ease;
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 32px 18px;
     }
 
     header {
-      margin-bottom: var(--space-3);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
     }
 
-    img.logo {
-      width: min(420px, 70vw);
-      height: auto;
-      display: block;
-      margin: 0 auto var(--space-2);
-      object-fit: contain;
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .brand .name {
+      margin: 0;
+      font-size: 13px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .brand .sub {
+      margin: 0;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--hairline);
+      background: var(--paper);
+      font-weight: 700;
+    }
+
+    .pill:hover {
+      text-decoration: underline;
+      background: var(--soft);
+    }
+
+    .pill.tiendita:hover {
+      text-decoration: none;
+    }
+
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--hairline);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: 0 8px 24px rgba(34, 26, 51, 0.06);
+    }
+
+    .titleRow {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
     }
 
     h1 {
       margin: 0;
-      font-size: 20px;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-
-    p {
-      margin: var(--space-3) auto var(--space-3);
-      font-size: 18px;
-      line-height: 1.65;
-      max-width: 46ch;
-    }
-
-    .actions {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: var(--space-2);
-      margin-bottom: var(--space-5);
-    }
-
-    .btn, .link {
       font-size: 16px;
-      text-decoration: none;
-      color: var(--ink);
-      padding: 10px 14px;
-      border-radius: var(--radius);
-      display: inline-flex;
-      align-items: center;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .tag {
+      font-size: 12px;
+      color: var(--muted);
+      background: var(--soft);
+      border: 1px solid var(--hairline);
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .desc {
+      margin: 0 0 14px 0;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .buyArea {
+      display: flex;
       justify-content: center;
-    }
-
-    .btn {
-      border: 1px solid rgba(40, 2, 100, 0.28);
-      background: rgba(40, 2, 100, 0.04);
-    }
-
-    .btn:hover {
-      background: rgba(40, 2, 100, 0.08);
-    }
-
-    a {
-      color: var(--ink);
-    }
-
-    a:hover {
-      opacity: 0.75;
-    }
-
-    a:focus-visible {
-      outline: 2px solid rgba(40, 2, 100, 0.65);
-      outline-offset: 3px;
-      border-radius: 8px;
+      padding: 8px 0 2px 0;
     }
 
     footer {
-      margin-top: var(--space-4);
-      font-size: 14px;
-      opacity: 0.9;
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid var(--hairline);
+      font-size: 12px;
+      color: var(--muted);
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      .container { transition: none; }
+    footer p {
+      margin: 0;
     }
   </style>
 </head>
+
 <body>
-  <main class="container">
+  <div class="wrap">
     <header>
-      <img src="KOMARI%20STUDIOS%20LOGO.png" alt="Komari Studios logo" class="logo" />
-      <h1>K O M A R I&nbsp; S T U D I O S</h1>
+      <div class="brand">
+        <p class="name">Komari Studios</p>
+        <p class="sub">Shop</p>
+      </div>
+
+      <nav class="nav" aria-label="Primary">
+        <a class="pill tiendita" href="/shop.html"><strong>Tiendita</strong></a>
+        <a class="pill" href="/#contact"><strong>Contact</strong></a>
+      </nav>
     </header>
 
-    <p>
-      An independent creative studio focused on mindful art, design, and storytelling.
-    </p>
+    <main>
+      <section class="card" aria-label="Test item purchase">
+        <div class="titleRow">
+          <h1>Test item</h1>
+          <span class="tag">Secure checkout</span>
+        </div>
 
-    <div class="actions" aria-label="Primary actions">
-      <a href="/tiendita.html">Tiendita</a>
-      <a class="link" href="mailto:holakomaristudios@gmail.com">Contact</a>
-    </div>
+        <p class="desc">Use this page to run a quick purchase test.</p>
 
-    <section id="work" aria-label="Work preview">
-      <p style="font-size: 16px; max-width: 52ch; opacity: 0.95; margin-bottom: 0;">
-        Selected works and prints coming soon.
-      </p>
-    </section>
+        <div class="buyArea">
+          <script async
+            src="https://js.stripe.com/v3/buy-button.js">
+          </script>
 
-    <footer>© <span id="year"></span> Komari Studios, LLC</footer>
-  </main>
+          <stripe-buy-button
+            buy-button-id="buy_btn_1SsB7i00GBpk7t8o4BJEmjjZ"
+            publishable-key="pk_live_51SsANa00GBpk7t8oAn2OkcBRNC8VFXCqMs8x1ZPUtgbyww8cs78QyPj2yA6y6HtK7ZFzjh30tvtxYXjfXplnTlpa00WAMnuigT"
+          >
+          </stripe-buy-button>
+        </div>
 
-  <script>
-    const container = document.querySelector(".container");
-    const year = document.getElementById("year");
-    if (year) year.textContent = String(new Date().getFullYear());
-
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (container && !reduced) {
-      let rafId = 0;
-      let lastX = 0;
-      let lastY = 0;
-
-      function applyTransform() {
-        rafId = 0;
-        container.style.transform = "translate(" + lastX * 8 + "px, " + lastY * 8 + "px)";
-      }
-
-      document.addEventListener("mousemove", function (event) {
-        lastX = event.clientX / window.innerWidth - 0.5;
-        lastY = event.clientY / window.innerHeight - 0.5;
-        if (!rafId) rafId = window.requestAnimationFrame(applyTransform);
-      }, { passive: true });
-    }
-  </script>
+        <footer>
+          <p>If checkout does not load, refresh the page and try again.</p>
+        </footer>
+      </section>
+    </main>
+  </div>
 </body>
 </html>
