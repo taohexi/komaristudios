@@ -75,6 +75,7 @@
     .nav {
       display: flex;
       align-items: center;
+      justify-content: flex-end;
       gap: 10px;
       font-size: 13px;
       color: var(--muted);
@@ -87,9 +88,17 @@
       border-radius: 999px;
       border: 1px solid var(--hairline);
       background: var(--paper);
+      font-weight: 700;
+      text-decoration: none;
     }
 
     .pill:hover {
+      text-decoration: underline;
+      background: var(--soft);
+    }
+
+    .pill.tiendita,
+    .pill.tiendita:hover {
       text-decoration: none;
       background: var(--soft);
     }
@@ -158,11 +167,13 @@
     <header>
       <div class="brand">
         <p class="name">Komari Studios</p>
-        <p class="sub">Shop</p>
+        <p class="sub">Tiendita</p>
       </div>
 
       <nav class="nav" aria-label="Primary">
         <a class="pill" href="/">Home</a>
+        <a class="pill tiendita" href="/tiendita.html" aria-current="page">Tiendita</a>
+        <a class="pill" href="/#contact">Contact</a>
       </nav>
     </header>
 
