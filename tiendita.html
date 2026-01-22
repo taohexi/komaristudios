@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -8,127 +8,216 @@
 
   <style>
     :root {
-      --ink: #280264;
-      --bg: #ffffff;
-      --muted: #6b6b6b;
-      --card: #f6f4fb;
-      --radius: 18px;
-      --space-1: 12px;
-      --space-2: 20px;
-      --space-3: 32px;
-      --max: 820px;
+      --bg: #fbfbfc;
+      --paper: #ffffff;
+      --ink: #241a3a;
+      --muted: #6e6a79;
+      --hairline: rgba(36, 26, 58, 0.10);
+      --soft: rgba(36, 26, 58, 0.05);
+      --radius: 16px;
+      --max: 760px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      height: 100%;
     }
 
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
       background: var(--bg);
       color: var(--ink);
       line-height: 1.5;
+      letter-spacing: 0.01em;
     }
 
-    header {
-      padding: var(--space-2);
-      border-bottom: 1px solid rgba(40, 2, 100, 0.12);
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
     }
 
     .wrap {
       max-width: var(--max);
       margin: 0 auto;
-      padding: 0 var(--space-2);
+      padding: 28px 18px;
+    }
+
+    header {
+      padding: 18px 0 8px 0;
+    }
+
+    .top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
     }
 
     .brand {
       display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: var(--space-2);
-      flex-wrap: wrap;
+      flex-direction: column;
+      gap: 2px;
     }
 
-    .brand h1 {
-      margin: 0;
-      font-size: 18px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .brand a {
-      color: var(--ink);
-      text-decoration: none;
+    .brand .name {
       font-size: 14px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin: 0;
     }
 
-    .brand a:hover {
-      text-decoration: underline;
+    .brand .sub {
+      margin: 0;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .nav {
+      display: flex;
+      gap: 12px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .nav a {
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: transparent;
+      border: 1px solid transparent;
+    }
+
+    .nav a:hover {
+      text-decoration: none;
+      border-color: var(--hairline);
+      background: var(--paper);
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--hairline);
+      margin: 14px 0 0 0;
     }
 
     main {
-      padding: var(--space-3) 0;
+      padding: 22px 0 0 0;
     }
 
     .card {
-      background: var(--card);
-      border: 1px solid rgba(40, 2, 100, 0.12);
+      background: var(--paper);
+      border: 1px solid var(--hairline);
       border-radius: var(--radius);
-      padding: var(--space-3);
+      padding: 18px 18px 16px 18px;
+      box-shadow: 0 6px 20px rgba(36, 26, 58, 0.05);
     }
 
-    h2 {
-      margin: 0 0 var(--space-1) 0;
-      font-size: 22px;
+    .titleRow {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 6px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 600;
       letter-spacing: 0.02em;
     }
 
-    p {
-      margin: 0 0 var(--space-2) 0;
+    .tag {
+      font-size: 12px;
+      color: var(--muted);
+      background: var(--soft);
+      border: 1px solid var(--hairline);
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .desc {
+      margin: 0 0 14px 0;
+      font-size: 13px;
       color: var(--muted);
     }
 
-    .buy {
+    .buyArea {
       display: flex;
       justify-content: center;
-      padding-top: var(--space-2);
+      padding-top: 6px;
     }
 
     footer {
-      padding: var(--space-2);
-      border-top: 1px solid rgba(40, 2, 100, 0.12);
+      padding: 14px 0 0 0;
       color: var(--muted);
-      font-size: 13px;
+      font-size: 12px;
+    }
+
+    .fineprint {
+      border-top: 1px solid var(--hairline);
+      margin-top: 18px;
+      padding-top: 12px;
+    }
+
+    .fineprint p {
+      margin: 0;
+    }
+
+    @media (min-width: 700px) {
+      .wrap { padding: 34px 22px; }
+      .card { padding: 20px 22px 18px 22px; }
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <div class="wrap brand">
-      <h1>Komari Studios</h1>
-      <a href="/">Back to home</a>
-    </div>
-  </header>
+  <div class="wrap">
+    <header>
+      <div class="top">
+        <div class="brand">
+          <p class="name">Komari Studios</p>
+          <p class="sub">Simple checkout, powered by Stripe</p>
+        </div>
 
-  <main class="wrap">
-    <section class="card">
-      <h2>Test item</h2>
-      <p>This is a test purchase page powered by Stripe.</p>
-
-      <div class="buy">
-        <script async src="https://js.stripe.com/v3/buy-button.js"></script>
-
-        <stripe-buy-button
-          buy-button-id="buy_btn_1SsB7i00GBpk7t8o4BJEmjjZ"
-          publishable-key="pk_live_51SsANa00GBpk7t8oAn2OkcBRNC8VFXCqMs8x1ZPUtgbyww8cs78QyPj2yA6y6HtK7ZFzjh30tvtxYXjfXplnTlpa00WAMnuigT"
-        >
-        </stripe-buy-button>
+        <nav class="nav" aria-label="Primary">
+          <a href="/">Home</a>
+        </nav>
       </div>
-    </section>
-  </main>
+      <div class="divider"></div>
+    </header>
 
-  <footer>
-    <div class="wrap">
-      If you have any issues checking out, please refresh the page and try again.
-    </div>
-  </footer>
+    <main>
+      <section class="card" aria-label="Test item purchase">
+        <div class="titleRow">
+          <h1>Test item</h1>
+          <span class="tag">Secure checkout</span>
+        </div>
+
+        <p class="desc">
+          Use this page to run a quick purchase test.
+        </p>
+
+        <div class="buyArea">
+          <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+
+          <stripe-buy-button
+            buy-button-id="buy_btn_1SsB7i00GBpk7t8o4BJEmjjZ"
+            publishable-key="pk_live_51SsANa00GBpk7t8o4BJEmjjZ"
+          >
+          </stripe-buy-button>
+        </div>
+
+        <footer class="fineprint">
+          <p>If checkout does not load, refresh the page and try again.</p>
+        </footer>
+      </section>
+    </main>
+  </div>
 </body>
 </html>
