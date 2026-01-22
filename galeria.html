@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Komari Studios Tiendita. Art pieces for sale." />
+  <title>Komari Studios | Tiendita</title>
+
+  <style>
+    :root {
+      --bg: #fbfbfc;
+      --paper: #ffffff;
+      --ink: #221a33;
+      --muted: #6f6b7a;
+      --hairline: rgba(34, 26, 51, 0.10);
+      --soft: rgba(34, 26, 51, 0.05);
+      --radius: 16px;
+      --max: 960px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.55;
+      letter-spacing: 0.01em;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 32px 18px;
+    }
+
+    header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .brand .name {
+      margin: 0;
+      font-size: 13px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .brand .sub {
+      margin: 0;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--hairline);
+      background: var(--paper);
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .pill:hover {
+      text-decoration: underline;
+      background: var(--soft);
+    }
+
+    .pill.current,
+    .pill.current:hover {
+      text-decoration: none;
+      background: var(--soft);
+    }
+
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--hairline);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: 0 8px 24px rgba(34, 26, 51, 0.06);
+    }
+
+    .titleRow {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .tag {
+      font-size: 12px;
+      color: var(--muted);
+      background: var(--soft);
+      border: 1px solid var(--hairline);
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .desc {
+      margin: 0 0 16px 0;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .item {
+      border: 1px solid var(--hairline);
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--paper);
+      box-shadow: 0 6px 16px rgba(34, 26, 51, 0.05);
+    }
+
+    .thumb {
+      display: block;
+      background: var(--soft);
+    }
+
+    .thumb img {
+      width: 100%;
+      height: auto;
+      display: block;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+    }
+
+    .meta {
+      padding: 10px 10px 12px 10px;
+    }
+
+    .meta h2 {
+      margin: 0;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    .meta p {
+      margin: 6px 0 0 0;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    footer {
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid var(--hairline);
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    footer p {
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <p class="name">Komari Studios</p>
+        <p class="sub">Tiendita</p>
+      </div>
+
+      <nav class="nav" aria-label="Primary">
+        <a class="pill" href="/">Home</a>
+        <a class="pill current" href="/tiendita-gallery.html" aria-current="page">Tiendita</a>
+        <a class="pill" href="/#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="card" aria-label="Art pieces for sale">
+        <div class="titleRow">
+          <h1>Art pieces</h1>
+          <span class="tag">Nine works</span>
+        </div>
+
+        <p class="desc">Replace the images and text below with your current offerings.</p>
+
+        <div class="grid" role="list">
+          <article class="item" role="listitem">
+            <a class="thumb" href="#">
+              <img src="art_01.jpg" alt="Shizuku Study No 1" loading="lazy" />
+            </a>
+            <div class="meta">
+              <h2>Shizuku Study No 1</h2>
+              <p>Original, mixed media</p>
+            </div>
+          </article>
+
+          <article class="item" role="listitem">
+            <a class="thumb" href="#">
+              <img src="art_02.jpg" alt="Komari Orbit No 2" loading="lazy" />
+            </a>
+            <div class="meta">
+              <h2>Komari Orbit No 2</h2>
+              <p>Original, ink on paper</p>
+            </div>
+          </article>
+
+          <article class="item" role="listitem">
+            <a class="thumb" href="#">
+              <img src="art_03.jpg" alt="Haru Map No 3" loading="lazy" />
+            </a>
+            <div class="meta">
+              <h2>Haru Map No 3</h2>
+              <p>Print, archival</p>
+            </div>
+          </article>
+
+          <article class="item" role="listitem">
+            <a class="thumb" href="#">
+              <img src="art_04.jpg" alt="Night Meridian No 4" loading="lazy" />
+            </a>
+            <div class="meta">
+              <h2>Night Meridian No 4</h2>
+              <p>Original, watercolor</p>
+            </div>
+          </article>
+
+          <article class="item" role="listitem">
+            <a class="thumb" href="#">
+              <img src="art_05.jpg" alt="Quiet Signal No 5" loading="lazy" />
+            </a>
+            <div class="meta">
+              <h2>Quiet Signal No 5</h2>
+              <p>Original, gouache</p>
+            </div>
+          </article>
+
+          <article class="item" role="listitem">
+            <a class="thumb" href="#">
+              <img src="art_06.jpg" alt="Sumi Horizon No 6" loading="lazy" />
+            </a>
+            <div class="meta">
+              <h2>Sumi Horizon No 6</h2>
+              <p>Print, matte</p>
+            </div>
+          </article>
+
+          <article class="item" role="listitem">
+            <a class="thumb" href="#">
+              <img src="art_07.jpg" alt="Earth Thread No 7" loading="lazy" />
+            </a>
+            <div class="meta">
+              <h2>Earth Thread No 7</h2>
+              <p>Original, collage</p>
+            </div>
+          </article>
+
+          <article class="item" role="listitem">
+            <a class="thumb" href="#">
+              <img src="art_08.jpg" alt="Small Sphere No 8" loading="lazy" />
+            </a>
+            <div class="meta">
+              <h2>Small Sphere No 8</h2>
+              <p>Original, acrylic</p>
+            </div>
+          </article>
+
+          <article class="item" role="listitem">
+            <a class="thumb" href="#">
+              <img src="art_09.jpg" alt="Moon Notes No 9" loading="lazy" />
+            </a>
+            <div class="meta">
+              <h2>Moon Notes No 9</h2>
+              <p>Print, fine art paper</p>
+            </div>
+          </article>
+        </div>
+
+        <footer>
+          <p>To add checkout later, link each item to a detail page or to a Stripe page.</p>
+        </footer>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
