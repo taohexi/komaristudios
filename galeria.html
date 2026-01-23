@@ -254,15 +254,5 @@
     </footer>
   </div>
 
-  <script>
-    const container = document.querySelector(".container");
-    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      document.addEventListener("mousemove", function(event) {
-        const x = (event.clientX / window.innerWidth) - 0.5;
-        const y = (event.clientY / window.innerHeight) - 0.5;
-        container.style.transform = "translate(" + (x * 8) + "px, " + (y * 8) + "px)";
-      });
-    }
-  </script>
 </body>
 </html>
