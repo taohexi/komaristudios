@@ -102,7 +102,6 @@
             <nav class="nav" aria-label="Primary">
                 <a class="pill tiendita" href="/tiendita.html">Tiendita</a>
                 <a class="pill galeria" href="/galeria.html">Galeria</a>
-                <a class="pill" href="#contact">Contact</a>
             </nav>
         </header>
 
@@ -120,15 +119,6 @@
             © 2026 Komari Studios, LLC
         </footer>
     </div>
-    <script>
-        const container = document.querySelector(".container");
-        if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-            document.addEventListener("mousemove", function(event) {
-                const x = (event.clientX / window.innerWidth) - 0.5;
-                const y = (event.clientY / window.innerHeight) - 0.5;
-                container.style.transform = "translate(" + (x * 8) + "px, " + (y * 8) + "px)";
-            });
-        }
-    </script>
+ 
 </body>
 </html>
