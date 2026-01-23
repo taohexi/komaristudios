@@ -1,167 +1,100 @@
+<!-- galeria.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Komari Studios Tiendita. Art pieces for sale." />
-  <title>Komari Studios | Tiendita</title>
-
+  <meta charset="UTF-8">
+  <title>K O M A R I&nbsp; S T U D I O S | Galeria</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Komari Studios Galeria. Art pieces for sale.">
+  <link rel="icon" type="image/png" href="KOMARI STUDIOS LOGO.png">
   <style>
-    :root {
-      --bg: #fbfbfc;
-      --paper: #ffffff;
-      --ink: #221a33;
-      --muted: #6f6b7a;
-      --hairline: rgba(34, 26, 51, 0.10);
-      --soft: rgba(34, 26, 51, 0.05);
-      --radius: 16px;
-      --max: 960px;
-    }
-
-    * { box-sizing: border-box; }
-
     body {
       margin: 0;
-      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
-      background: var(--bg);
-      color: var(--ink);
-      line-height: 1.55;
-      letter-spacing: 0.01em;
+      padding: 0;
+      font-family: 'Cal Sans', sans-serif;
+      background-color: #ffffff;
+      color: #280264;
     }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .wrap {
-      max-width: var(--max);
+    .container {
+      max-width: 720px;
       margin: 0 auto;
-      padding: 32px 18px;
+      padding: 64px 24px 96px 24px;
+      text-align: center;
+      transition: transform 0.1s ease;
     }
-
-    header {
+    .topbar {
       display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-      margin-bottom: 18px;
+      justify-content: flex-end;
+      margin-bottom: 28px;
     }
-
-    .brand {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .brand .name {
-      margin: 0;
-      font-size: 13px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-    }
-
-    .brand .sub {
-      margin: 0;
-      font-size: 12px;
-      color: var(--muted);
-    }
-
     .nav {
       display: flex;
       align-items: center;
-      justify-content: flex-end;
       gap: 10px;
-      font-size: 13px;
-      color: var(--muted);
     }
-
     .pill {
       display: inline-flex;
       align-items: center;
-      padding: 8px 10px;
+      padding: 9px 12px;
       border-radius: 999px;
-      border: 1px solid var(--hairline);
-      background: var(--paper);
+      border: 1px solid rgba(40, 2, 100, 0.18);
+      background: #ffffff;
+      color: #280264;
+      font-size: 14px;
       font-weight: 700;
       text-decoration: none;
       white-space: nowrap;
     }
-
     .pill:hover {
+      background: rgba(40, 2, 100, 0.04);
       text-decoration: underline;
-      background: var(--soft);
     }
-
-    .pill.current,
-    .pill.current:hover {
+    .pill.galeria:hover {
       text-decoration: none;
-      background: var(--soft);
     }
-
-    .card {
-      background: var(--paper);
-      border: 1px solid var(--hairline);
-      border-radius: var(--radius);
-      padding: 18px;
-      box-shadow: 0 8px 24px rgba(34, 26, 51, 0.06);
+    .pill.current {
+      background: rgba(40, 2, 100, 0.04);
+      text-decoration: none;
     }
-
-    .titleRow {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: 10px;
+    img.logo {
+      width: clamp(180px, 44%, 360px);
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 18px;
+      object-fit: contain;
     }
-
+    h1, p, footer {
+      color: #280264;
+    }
     h1 {
-      margin: 0;
-      font-size: 16px;
-      font-weight: 600;
+      font-size: 22px;
+      font-weight: 500;
+      margin: 0 0 20px 0;
       letter-spacing: 0.02em;
     }
-
-    .tag {
-      font-size: 12px;
-      color: var(--muted);
-      background: var(--soft);
-      border: 1px solid var(--hairline);
-      padding: 4px 10px;
-      border-radius: 999px;
-    }
-
-    .desc {
-      margin: 0 0 16px 0;
-      font-size: 13px;
-      color: var(--muted);
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin: 0 0 28px 0;
     }
 
     .grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
+      gap: 14px;
+      margin-top: 10px;
+      text-align: left;
     }
-
     .item {
-      border: 1px solid var(--hairline);
+      border: 1px solid rgba(40, 2, 100, 0.18);
       border-radius: 14px;
       overflow: hidden;
-      background: var(--paper);
-      box-shadow: 0 6px 16px rgba(34, 26, 51, 0.05);
+      background: #ffffff;
     }
-
     .thumb {
       display: block;
-      background: var(--soft);
+      background: rgba(40, 2, 100, 0.04);
     }
-
     .thumb img {
       width: 100%;
       height: auto;
@@ -169,159 +102,167 @@
       aspect-ratio: 1 / 1;
       object-fit: cover;
     }
-
     .meta {
       padding: 10px 10px 12px 10px;
     }
-
     .meta h2 {
       margin: 0;
-      font-size: 13px;
-      font-weight: 600;
+      font-size: 16px;
+      font-weight: 500;
       letter-spacing: 0.01em;
+      color: #280264;
     }
-
     .meta p {
       margin: 6px 0 0 0;
-      font-size: 12px;
-      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.4;
+      color: rgba(40, 2, 100, 0.85);
     }
 
     footer {
-      margin-top: 14px;
-      padding-top: 12px;
-      border-top: 1px solid var(--hairline);
-      font-size: 12px;
-      color: var(--muted);
+      margin-top: 96px;
+      font-size: 14px;
+      color: #280264;
     }
 
-    footer p {
-      margin: 0;
+    @media (max-width: 700px) {
+      .grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 440px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .container { transition: none; }
     }
   </style>
 </head>
 
 <body>
-  <div class="wrap">
-    <header>
-      <div class="brand">
-        <p class="name">Komari Studios</p>
-        <p class="sub">Tiendita</p>
-      </div>
-
+  <div class="container">
+    <header class="topbar">
       <nav class="nav" aria-label="Primary">
-        <a class="pill" href="/">Home</a>
-        <a class="pill current" href="/tiendita.html" aria-current="page">Tiendita</a>
+        <a class="pill tiendita" href="/tiendita.html">Tiendita</a>
+        <a class="pill galeria current" href="/galeria.html" aria-current="page">Galeria</a>
         <a class="pill" href="/#contact">Contact</a>
       </nav>
     </header>
 
-    <main>
-      <section class="card" aria-label="Art pieces for sale">
-        <div class="titleRow">
-          <h1>Art pieces</h1>
-          <span class="tag">Nine works</span>
+    <img src="KOMARI STUDIOS LOGO.png" alt="Komari Studios logo" class="logo">
+
+    <h1>Galeria</h1>
+
+    <p>
+      Artis TaoHexi, digital art in Tayasui Sketches.
+    </p>
+
+    <section class="grid" aria-label="Art grid">
+      <article class="item">
+        <a class="thumb" href="#">
+          <img src="arbolito.jpeg" alt="Arbolito" loading="lazy">
+        </a>
+        <div class="meta">
+          <h2>Arbolito</h2>
+          <p>Original, digital media</p>
         </div>
+      </article>
 
-        <p class="desc">Artis TaoHexi: Digital art in Tayasui Sketches application. </p>
-
-        <div class="grid" role="list">
-          <article class="item" role="listitem">
-            <a class="thumb" href="#">
-              <img src="arbolito.jpeg" alt="Arbolito" loading="lazy" />
-            </a>
-            <div class="meta">
-              <h2>Arbolito</h2>
-              <p>Original, digital media</p>
-            </div>
-          </article>
-
-          <article class="item" role="listitem">
-            <a class="thumb" href="#">
-              <img src="salio el sol.jpeg" alt="Salio el Sol" loading="lazy" />
-            </a>
-            <div class="meta">
-              <h2>Salio el Sol</h2>
-              <p>Original, digital media</p>
-            </div>
-          </article>
-
-          <article class="item" role="listitem">
-            <a class="thumb" href="#">
-              <img src="aqui estoy.jpeg" alt="Aqui Estoy" loading="lazy" />
-            </a>
-            <div class="meta">
-              <h2>Aqui Estoy</h2>
-              <p>Original, digital media</p>
-            </div>
-          </article>
-
-          <article class="item" role="listitem">
-            <a class="thumb" href="#">
-              <img src="bebe surf.jpeg" alt="Bebe Surf" loading="lazy" />
-            </a>
-            <div class="meta">
-              <h2>Bebe Surf</h2>
-              <p>Original, digital media</p>
-            </div>
-          </article>
-
-          <article class="item" role="listitem">
-            <a class="thumb" href="#">
-              <img src="sandia palestina.jpeg" alt="Sandia Palestina" loading="lazy" />
-            </a>
-            <div class="meta">
-              <h2>Sandia Palestina</h2>
-              <p>Original, digital media</p>
-            </div>
-          </article>
-
-          <article class="item" role="listitem">
-            <a class="thumb" href="#">
-              <img src="mano planta.jpeg" alt="Mano Planta" loading="lazy" />
-            </a>
-            <div class="meta">
-              <h2>Mano Planta</h2>
-              <p>Original, digital media</p>
-            </div>
-          </article>
-
-          <article class="item" role="listitem">
-            <a class="thumb" href="#">
-              <img src="iris arco.jpeg" alt="Iris Arco" loading="lazy" />
-            </a>
-            <div class="meta">
-              <h2>Iris Arco </h2>
-              <p>Original, digital media</p>
-            </div>
-          </article>
-
-          <article class="item" role="listitem">
-            <a class="thumb" href="#">
-              <img src="flor y sol.jpeg" alt="Flor y Sol" loading="lazy" />
-            </a>
-            <div class="meta">
-              <h2>Flor y Sol</h2>
-              <p>Original, digital media</p>
-            </div>
-          </article>
-
-          <article class="item" role="listitem">
-            <a class="thumb" href="#">
-              <img src="cielo y flor.jpeg" alt="Cielo y Flor" loading="lazy" />
-            </a>
-            <div class="meta">
-              <h2>Cielo y Flor</h2>
-              <p>Original, digital media</p>
-            </div>
-          </article>
+      <article class="item">
+        <a class="thumb" href="#">
+          <img src="salio%20el%20sol.jpeg" alt="Salio el Sol" loading="lazy">
+        </a>
+        <div class="meta">
+          <h2>Salio el Sol</h2>
+          <p>Original, digital media</p>
         </div>
+      </article>
 
-        <footer>
-          <p>Physical art prints available soon.</p>
-        </footer>
-      </section>
-    </main>
+      <article class="item">
+        <a class="thumb" href="#">
+          <img src="aqui%20estoy.jpeg" alt="Aqui Estoy" loading="lazy">
+        </a>
+        <div class="meta">
+          <h2>Aqui Estoy</h2>
+          <p>Original, digital media</p>
+        </div>
+      </article>
+
+      <article class="item">
+        <a class="thumb" href="#">
+          <img src="bebe%20surf.jpeg" alt="Bebe Surf" loading="lazy">
+        </a>
+        <div class="meta">
+          <h2>Bebe Surf</h2>
+          <p>Original, digital media</p>
+        </div>
+      </article>
+
+      <article class="item">
+        <a class="thumb" href="#">
+          <img src="sandia%20palestina.jpeg" alt="Sandia Palestina" loading="lazy">
+        </a>
+        <div class="meta">
+          <h2>Sandia Palestina</h2>
+          <p>Original, digital media</p>
+        </div>
+      </article>
+
+      <article class="item">
+        <a class="thumb" href="#">
+          <img src="mano%20planta.jpeg" alt="Mano Planta" loading="lazy">
+        </a>
+        <div class="meta">
+          <h2>Mano Planta</h2>
+          <p>Original, digital media</p>
+        </div>
+      </article>
+
+      <article class="item">
+        <a class="thumb" href="#">
+          <img src="iris%20arco.jpeg" alt="Iris Arco" loading="lazy">
+        </a>
+        <div class="meta">
+          <h2>Iris Arco</h2>
+          <p>Original, digital media</p>
+        </div>
+      </article>
+
+      <article class="item">
+        <a class="thumb" href="#">
+          <img src="flor%20y%20sol.jpeg" alt="Flor y Sol" loading="lazy">
+        </a>
+        <div class="meta">
+          <h2>Flor y Sol</h2>
+          <p>Original, digital media</p>
+        </div>
+      </article>
+
+      <article class="item">
+        <a class="thumb" href="#">
+          <img src="cielo%20y%20flor.jpeg" alt="Cielo y Flor" loading="lazy">
+        </a>
+        <div class="meta">
+          <h2>Cielo y Flor</h2>
+          <p>Original, digital media</p>
+        </div>
+      </article>
+    </section>
+
+    <footer>
+      © 2026 Komari Studios, LLC
+    </footer>
   </div>
+
+  <script>
+    const container = document.querySelector(".container");
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.addEventListener("mousemove", function(event) {
+        const x = (event.clientX / window.innerWidth) - 0.5;
+        const y = (event.clientY / window.innerHeight) - 0.5;
+        container.style.transform = "translate(" + (x * 8) + "px, " + (y * 8) + "px)";
+      });
+    }
+  </script>
 </body>
 </html>
