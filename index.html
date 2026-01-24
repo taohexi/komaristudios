@@ -89,6 +89,31 @@
       margin-top: 96px;
       font-size: 14px;
       color: #280264;
+      .contact {
+  font-size: 16px;
+  margin-top: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.contactLabel {
+  font-size: 16px;
+}
+
+.pill.contactPill {
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.pill.contactPill:hover {
+  background: rgba(40, 2, 100, 0.04);
+  text-decoration: underline;
+}
+
     }
   </style>
 </head>
@@ -110,8 +135,10 @@
         </p>
 
         <div class="contact" id="contact">
-            Contact: <a href="mailto:hola@komaristudios.com">hola@komaristudios.com</a>
+        <span class="contactLabel">Contact:</span>
+        <a class="pill contactPill" href="mailto:hola@komaristudios.com">hola@komaristudios.com</a>
         </div>
+
 
         <footer>
             © 2026 Komari Studios, LLC
