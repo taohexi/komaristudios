@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -369,6 +369,7 @@
 
     #services {
       background: var(--bg);
+      padding-bottom: 1.5rem;
     }
 
     .services-intro {
@@ -376,7 +377,37 @@
       font-size: 0.95rem;
       max-width: 600px;
       line-height: 1.8;
-      margin-bottom: 3.5rem;
+      margin-bottom: 0;
+    }
+
+    /* ─── FEATURED IMAGE ─── */
+
+    .featured-image {
+      padding-top: 0;
+    }
+
+    .framed-image {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 1.5rem;
+      background: var(--gallery-card);
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 20px rgba(44, 36, 32, 0.08);
+    }
+
+    .framed-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .image-caption {
+      text-align: right;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.82rem;
+      font-style: italic;
+      color: var(--text-light);
+      margin-top: 0.75rem;
     }
 
     .services-grid {
@@ -617,21 +648,6 @@
       opacity: 1;
       transform: translateY(0);
     }
-
-   .framed-image {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 1.5rem;
-      background: var(--gallery-card);
-      border: 1px solid var(--border);
-      box-shadow: 0 4px 20px rgba(44, 36, 32, 0.08);
-    }
-
-    .framed-image img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
   </style>
 </head>
 <body>
@@ -704,7 +720,7 @@
         <div class="gallery-card">
           <img src="cielo%20y%20flor.jpeg" alt="Cielo y Flor" class="gallery-img">
           <div class="card-info">
-            <span class="work-title">Cielito Lindo</span>
+            <span class="work-title">Cielo y Flor</span>
           </div>
         </div>
         <div class="gallery-card">
@@ -720,9 +736,9 @@
           </div>
         </div>
         <div class="gallery-card">
-          <img src="DSC_5159.JPG" alt="Digital Photography" class="gallery-img">
+          <img src="DSC_5159.JPG" alt="Original Work" class="gallery-img">
           <div class="card-info">
-            <span class="work-title">Arboles de Luz</span>
+            <span class="work-title">Original Work</span>
           </div>
         </div>
       </div>
@@ -737,11 +753,13 @@
       <p class="services-intro">Archival quality prints and numbered editions of original works.</p>
     </div>
   </section>
- <!-- FEATURED IMAGE -->
+
+  <!-- FEATURED IMAGE -->
   <section class="featured-image">
     <div class="section-inner fade-up">
       <div class="framed-image">
         <img src="arts.jpg" alt="Featured artwork">
+        <p class="image-caption">Jose Torres, Los Angeles, 2016.</p>
       </div>
     </div>
   </section>
