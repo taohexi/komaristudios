@@ -617,6 +617,21 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+   .framed-image {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 1.5rem;
+      background: var(--gallery-card);
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 20px rgba(44, 36, 32, 0.08);
+    }
+
+    .framed-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
   </style>
 </head>
 <body>
@@ -720,6 +735,14 @@
       <p class="section-label">Services</p>
       <h2 class="section-title">Art Prints &amp; Limited Editions</h2>
       <p class="services-intro">Archival quality prints and numbered editions of original works.</p>
+    </div>
+  </section>
+ <!-- FEATURED IMAGE -->
+  <section class="featured-image">
+    <div class="section-inner fade-up">
+      <div class="framed-image">
+        <img src="arts.jpg" alt="Featured artwork">
+      </div>
     </div>
   </section>
 
