@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -334,15 +334,27 @@
       opacity: 0.5;
     }
 
+    .gallery-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
     .gallery-card .card-info {
       position: relative;
       z-index: 1;
+      background: linear-gradient(transparent, rgba(0,0,0,0.45));
+      margin: -1.25rem;
+      padding: 3rem 1.25rem 1.25rem;
     }
 
     .gallery-card .artist {
       font-size: 0.75rem;
       letter-spacing: 0.05em;
-      color: var(--text-secondary);
+      color: rgba(255,255,255,0.8);
       font-weight: 400;
     }
 
@@ -350,7 +362,7 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 0.9rem;
       font-style: italic;
-      color: var(--text-primary);
+      color: #fff;
     }
 
     /* ─── SERVICES ─── */
@@ -630,7 +642,7 @@
       <li><a href="#about">About</a></li>
       <li><a href="#galeria">Galería</a></li>
       <li><a href="#services">Services</a></li>
-      <li><a href="#journal">Journal</a></li>
+      <li><a href="#revista">Revista</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
@@ -664,24 +676,6 @@
       <p class="section-body">
         Komari Studios creates space where art, design, and narrative converge with purpose. We create, curate, and collaborate with care, honoring the traditions and communities that shape our work.
       </p>
-      <div class="about-values">
-        <div class="about-value">
-          <h4>Mindful Making</h4>
-          <p>Every project begins with listening and intention.</p>
-        </div>
-        <div class="about-value">
-          <h4>Cultural Storytelling</h4>
-          <p>Rooted in heritage, shaped for today.</p>
-        </div>
-        <div class="about-value">
-          <h4>Community First</h4>
-          <p>Creativity in service of people and place.</p>
-        </div>
-        <div class="about-value">
-          <h4>Intentional Design</h4>
-          <p>Nothing arbitrary, everything considered.</p>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -689,35 +683,31 @@
   <section id="galeria">
     <div class="section-inner fade-up">
       <p class="section-label">La Galería</p>
-      <h2 class="section-title">Curated Works</h2>
-      <p class="section-body">A rotating selection of original works. Art that speaks, challenges, and connects.</p>
+      <h2 class="section-title">Art Prints &amp; Limited Editions</h2>
+      <p class="section-body">Archival quality prints and numbered editions of original works.</p>
       <div class="gallery-grid">
         <div class="gallery-card">
-          <div class="placeholder">✦</div>
+          <img src="cielo%20y%20flor.jpeg" alt="Cielo y Flor" class="gallery-img">
           <div class="card-info">
-            <span class="artist">Artist Name</span>
-            <span class="work-title">Title of Work, 2026</span>
+            <span class="work-title">Cielo y Flor</span>
           </div>
         </div>
         <div class="gallery-card">
-          <div class="placeholder">◆</div>
+          <img src="flor%20naranja.jpeg" alt="Flor Naranja" class="gallery-img">
           <div class="card-info">
-            <span class="artist">Artist Name</span>
-            <span class="work-title">Title of Work, 2026</span>
+            <span class="work-title">Flor Naranja</span>
           </div>
         </div>
         <div class="gallery-card">
-          <div class="placeholder">◈</div>
+          <img src="salio%20el%20sol.jpeg" alt="Salio el Sol" class="gallery-img">
           <div class="card-info">
-            <span class="artist">Artist Name</span>
-            <span class="work-title">Title of Work, 2026</span>
+            <span class="work-title">Salio el Sol</span>
           </div>
         </div>
         <div class="gallery-card">
-          <div class="placeholder">✦</div>
+          <img src="DSC_5159.JPG" alt="Original Work" class="gallery-img">
           <div class="card-info">
-            <span class="artist">Artist Name</span>
-            <span class="work-title">Title of Work, 2026</span>
+            <span class="work-title">Original Work</span>
           </div>
         </div>
       </div>
@@ -728,42 +718,15 @@
   <section id="services">
     <div class="section-inner fade-up">
       <p class="section-label">Services</p>
-      <h2 class="section-title">Creative work with care.</h2>
-      <p class="services-intro">Original artwork, custom illustration, and commissioned pieces. Hand drawn, digitally refined, always personal.</p>
-      <div class="services-grid">
-
-        <div class="service-card">
-          <span class="service-icon">✦</span>
-          <h3>Custom Illustration</h3>
-          <p class="service-desc">One of a kind illustrations tailored to your vision, from concept sketch through final delivery.</p>
-        </div>
-
-        <div class="service-card">
-          <span class="service-icon">◆</span>
-          <h3>Editorial &amp; Packaging Artwork</h3>
-          <p class="service-desc">Art created for publications, product packaging, and print media with care and precision.</p>
-        </div>
-
-        <div class="service-card">
-          <span class="service-icon">◈</span>
-          <h3>Fine Art Commissions</h3>
-          <p class="service-desc">Personal and collaborative commissions brought to life with intention and craft.</p>
-        </div>
-
-        <div class="service-card">
-          <span class="service-icon">✦</span>
-          <h3>Art Prints &amp; Limited Editions</h3>
-          <p class="service-desc">Archival quality prints and numbered editions of original works.</p>
-        </div>
-
-      </div>
+      <h2 class="section-title">Art Prints &amp; Limited Editions</h2>
+      <p class="services-intro">Archival quality prints and numbered editions of original works.</p>
     </div>
   </section>
 
-  <!-- JOURNAL -->
-  <section id="journal">
+  <!-- REVISTA -->
+  <section id="revista">
     <div class="section-inner fade-up">
-      <p class="section-label">Journal</p>
+      <p class="section-label">Revista</p>
       <h2 class="section-title">Stories &amp; Process</h2>
       <div class="journal-entries">
         <div class="journal-entry">
@@ -783,14 +746,10 @@
   <!-- CONTACT -->
   <section id="contact">
     <div class="section-inner fade-up">
-      <p class="section-label">Get in Touch</p>
-      <h2 class="section-title">Let's make something together.</h2>
-      <p class="section-body" style="text-align:center;margin:0 auto;">For commissions, collaborations, wholesale inquiries, or just to say hello.</p>
-      <a href="/cdn-cgi/l/email-protection#0f6760636e6460626e7d667c7b7a6b66607c4f68626e6663216c6062" class="contact-email"><span class="__cf_email__" data-cfemail="8ae2e5e6ebe1e5e7ebf8e3f9feffeee3e5f9caede7ebe3e6a4e9e5e7">[email&#160;protected]</span></a>
+      <h2 class="section-title">Say Hello</h2>
+      <a href="mailto:holakomaristudios@gmail.com" class="contact-email">holakomaristudios@gmail.com</a>
       <ul class="contact-social">
-        <li><a href="#">Instagram</a></li>
-        <li><a href="#">Substack</a></li>
-        <li><a href="#">Are.na</a></li>
+        <li><a href="https://www.instagram.com/komaristudios" target="_blank" rel="noopener noreferrer">Instagram</a></li>
       </ul>
     </div>
   </section>
@@ -801,6 +760,17 @@
   </footer>
 
   <!-- SCROLL ANIMATION -->
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
     const observer = new IntersectionObserver((entries) => {
-      entries.for
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
