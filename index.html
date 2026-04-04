@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -189,13 +189,13 @@
       top: 0;
       right: 0;
       bottom: 0;
-      width: 280px;
-      /* For production: replace with url('Playing_Temari.jpg') */
-      background-image: url('Playing Temari.jpg')
+      width: 320px;
+      background-image: url('Playing%20Temari.jpg');
       background-position: top center;
       background-repeat: no-repeat;
-      opacity: 0.12;
-      filter: blur(1px) saturate(0.35);
+      background-size: cover;
+      opacity: 0.28;
+      filter: saturate(0.4);
       pointer-events: none;
       z-index: 0;
     }
@@ -404,13 +404,13 @@
 
       .gallery-grid { grid-template-columns: repeat(2, 1fr); }
 
-      .story-section::before { width: 180px; opacity: 0.07; }
+      .story-section::before { width: 200px; opacity: 0.18; }
       .story-section::after { width: 220px; }
     }
 
     @media (max-width: 480px) {
       .gallery-grid { grid-template-columns: 1fr; }
-      .story-section::before { width: 120px; opacity: 0.05; }
+      .story-section::before { width: 140px; opacity: 0.12; }
       .story-section::after { width: 160px; }
     }
 
@@ -473,7 +473,6 @@
 
   <!-- ABOUT -->
   <!-- Image: Katsukawa Shuncho, Playing Temari, c. 1780/1801, Art Institute of Chicago. Public Domain. -->
-  <!-- For production: replace the data:image in .story-section::before with url('Playing_Temari.jpg') -->
   <section id="about" class="story-section">
     <div class="story-content fade-up">
       <p class="section-label">Our Story</p>
@@ -565,45 +564,3 @@
       <div class="journal-entries">
         <div class="journal-entry">
           <p class="journal-tag">Coming Soon</p>
-          <h3>Why We Make: On Mindful Practice</h3>
-          <p>On slowing down and creating with intention.</p>
-        </div>
-        <div class="journal-entry">
-          <p class="journal-tag">Coming Soon</p>
-          <h3>Building a Tiendita: From Idea to Shelf</h3>
-          <p>The story behind opening our little shop and the artists who inspire us.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="section-inner fade-up">
-      <h2 class="section-title">Say Hello</h2>
-      <a href="mailto:holakomaristudios@gmail.com" class="contact-email">holakomaristudios@gmail.com</a>
-      <ul class="contact-social">
-        <li><a href="https://www.instagram.com/komaristudios" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    &copy; 2026 Komari Studios, LLC
-  </footer>
-
-  <!-- SCROLL ANIMATION -->
-  <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.15 });
-    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-  </script>
-
-</body>
-</html>
