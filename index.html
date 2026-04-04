@@ -703,14 +703,21 @@
     <span class="hero-scroll">Scroll</span>
   </section>
 
-  <!-- ABOUT -->
- <!-- ═══════════════════════════════════════════════════════════
+<!-- ═══════════════════════════════════════════════════════════
      KOMARI STUDIOS — "Our Story" Section
-     Drop this block into your index.html, replacing the
-     existing Our Story section.
 
-     Place Ounen-mouhitsu.otf in the same directory as your
-     index.html (or update the url() path below to match).
+     PREVIEW VERSION with embedded image.
+     For production, replace the data:image/jpeg;base64 src
+     with "Playing_Temari.jpg" and host the file alongside
+     index.html.
+
+     Required files in the same directory as index.html:
+       • Ounen-mouhitsu.otf
+       • Playing_Temari.jpg
+
+     Image attribution (Public Domain):
+     Katsukawa Shuncho, Playing Temari, c. 1780/1801,
+     Art Institute of Chicago. Public Domain.
      ═══════════════════════════════════════════════════════════ -->
 
 <section id="about" class="story-section">
@@ -725,34 +732,85 @@
     }
 
     .story-section {
-      max-width: 680px;
-      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
       padding: 6rem 1.5rem;
       text-align: center;
-      font-family: inherit;
-      color: inherit;
+      color: var(--text-primary, #2C2420);
+      background: var(--bg, #FAF6F1);
+    }
+
+    /* ── Woodblock print pinned to right edge ── */
+
+    .story-bg-image {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: auto;
+      max-width: none;
+      opacity: 0.09;
+      filter: blur(1px) saturate(0.3);
+      pointer-events: none;
+      z-index: 0;
+      object-fit: cover;
+      object-position: top right;
+    }
+
+    /* Soft fade on the left edge so it blends into the background */
+    .story-section::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 40%;
+      background: linear-gradient(
+        to right,
+        var(--bg, #FAF6F1) 0%,
+        transparent 100%
+      );
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Content sits above ── */
+
+    .story-content {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+      margin: 0 auto;
     }
 
     .story-section .section-label {
-      font-size: 0.75rem;
-      letter-spacing: 0.25em;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 300;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      opacity: 0.5;
-      margin-bottom: 1.5rem;
+      color: var(--text-light, #9A8B7E);
+      margin-bottom: 1rem;
     }
 
     .story-section h2 {
-      font-size: clamp(1.5rem, 4vw, 2.25rem);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
       font-weight: 400;
       line-height: 1.3;
-      margin: 0 0 2.5rem 0;
+      color: var(--text-primary, #2C2420);
+      margin: 0 0 1.5rem 0;
     }
 
     .story-section .story-body p {
-      font-size: 1rem;
-      line-height: 1.85;
-      margin: 0 0 1.6rem 0;
-      opacity: 0.85;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--text-secondary, #6B5D52);
+      max-width: 600px;
+      margin: 0 auto 1.6rem;
     }
 
     .story-section .story-body p:last-child {
@@ -764,40 +822,101 @@
       font-family: 'Ounen-mouhitsu', sans-serif;
       font-style: normal;
       font-weight: 400;
-      font-size: 1.75rem;
+      font-size: 3.5rem;
       letter-spacing: 0.15em;
       margin-top: 3rem;
-      opacity: 0.3;
+      background: linear-gradient(
+        135deg,
+        #C9593A,
+        #D4874E,
+        #D4A843,
+        #7BA768,
+        #5B8EAF,
+        #5B6AAF,
+        #C97B84
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      opacity: 0.45;
+    }
+
+    .story-attribution {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 300;
+      color: var(--text-light, #9A8B7E);
+      opacity: 0.5;
+      margin-top: 2.5rem;
+      font-style: italic;
+    }
+
+    .story-attribution a {
+      color: var(--text-light, #9A8B7E);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s ease;
+    }
+
+    .story-attribution a:hover {
+      border-bottom-color: var(--text-light, #9A8B7E);
+    }
+
+    /* ── Mobile ── */
+
+    @media (max-width: 768px) {
+      .story-bg-image {
+        opacity: 0.05;
+      }
+
+      .story-section::after {
+        width: 60%;
+      }
     }
   </style>
 
-  <p class="section-label">Our Story</p>
+  <!-- Background: hashira-e woodblock print, right edge -->
+  <img
+    src= "Playing_Temari.jpg"
+    class="story-bg-image"
+    loading="lazy"
+  >
 
-  <h2>A small ball. A whole world.</h2>
+  <div class="story-content">
+    <p class="section-label">Our Story</p>
 
-  <div class="story-body">
-    <p>
-      The name Komari is rooted in the Japanese craft of "temari" (手毬),
-      hand stitched thread balls first shaped over a thousand years ago
-      from remnants of silk kimonos. Wrapped, divided, and embroidered
-      with patient geometric care, each temari held the maker's
-      quiet wish for a brilliant life.
-    </p>
-    <p>
-      We carry that meaning forward. Komari, a small ball,
-      is a reminder of the world we share: a small sphere
-      in a vast universe, wrapped in varied cultures,
-      connected by common threads.
-    </p>
-    <p>
-      Komari Studios creates where art, design, and narrative
-      converge with purpose. We create, curate, and collaborate
-      with care, honoring the traditions and communities
-      that shape our work.
+    <h2>A small ball. A whole world.</h2>
+
+    <div class="story-body">
+      <p>
+        The name Komari is rooted in the Japanese craft of temari,
+        hand stitched thread balls first shaped over a thousand years ago
+        from remnants of silk kimonos. Wrapped, divided, and embroidered
+        with patient geometric care, each temari held the maker's
+        quiet wish for a brilliant life.
+      </p>
+      <p>
+        We carry that meaning forward. Komari, a small ball,
+        is a reminder of the world we share: a small sphere
+        in a vast universe, wrapped in varied cultures,
+        connected by common threads.
+      </p>
+      <p>
+        Komari Studios creates where art, design, and narrative
+        converge with purpose. We create, curate, and collaborate
+        with care, honoring the traditions and communities
+        that shape our work.
+      </p>
+    </div>
+
+    <span class="kanji-mark" aria-hidden="true">小 鞠</span>
+
+    <p class="story-attribution">
+      <a href="https://www.curationist.org/works/work-aioc-36644" target="_blank" rel="noopener noreferrer">
+        Katsukawa Shuncho, <em>Playing Temari</em>, c. 1780/1801. Art Institute of Chicago. Public Domain.
+      </a>
     </p>
   </div>
-
-  <span class="kanji-mark" aria-hidden="true">小 鞠</span>
 
 </section>
 
