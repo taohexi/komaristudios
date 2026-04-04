@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -11,6 +11,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
+    /* ─── CUSTOM FONT ─── */
+    @font-face {
+      font-family: 'Ounen-mouhitsu';
+      src: url('Ounen-mouhitsu.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
     :root {
       --bg: #FAF6F1;
       --bg-warm: #F5EDE3;
@@ -256,39 +265,132 @@
       line-height: 1.8;
     }
 
-    /* ─── ABOUT ─── */
+    /* ─── ABOUT / STORY ─── */
 
-    #about {
+    .story-section {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      padding: 6rem 2rem;
+      text-align: center;
+      color: var(--text-primary);
       background: var(--bg);
     }
 
-    .about-values {
-      display: flex;
-      gap: 2rem;
-      margin-top: 3rem;
-      flex-wrap: wrap;
+    .story-bg-image {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      height: 100%;
+      width: auto;
+      max-width: none;
+      opacity: 0.12;
+      filter: blur(1px) saturate(0.35);
+      pointer-events: none;
+      z-index: 1;
     }
 
-    .about-value {
-      flex: 1;
-      min-width: 180px;
-      padding: 1.5rem;
-      border: 1px solid var(--border-light);
-      border-radius: 2px;
+    .story-section::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 50%;
+      background: linear-gradient(
+        to right,
+        var(--bg) 0%,
+        rgba(250, 246, 241, 0.4) 60%,
+        transparent 100%
+      );
+      pointer-events: none;
+      z-index: 2;
     }
 
-    .about-value h4 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1rem;
-      font-weight: 500;
-      margin-bottom: 0.5rem;
-      color: var(--text-primary);
+    .story-content {
+      position: relative;
+      z-index: 3;
+      max-width: 680px;
+      margin: 0 auto;
     }
 
-    .about-value p {
-      font-size: 0.82rem;
+    .story-section .section-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 300;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
       color: var(--text-light);
-      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .story-section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 400;
+      line-height: 1.3;
+      color: var(--text-primary);
+      margin: 0 0 1.5rem 0;
+    }
+
+    .story-section .story-body p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto 1.6rem;
+    }
+
+    .story-section .story-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .story-section .kanji-mark {
+      display: block;
+      font-family: 'Ounen-mouhitsu', sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 3.5rem;
+      letter-spacing: 0.15em;
+      margin-top: 3rem;
+      background: linear-gradient(
+        135deg,
+        #C9593A,
+        #D4874E,
+        #D4A843,
+        #7BA768,
+        #5B8EAF,
+        #5B6AAF,
+        #C97B84
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      opacity: 0.45;
+    }
+
+    .story-attribution {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 300;
+      color: var(--text-light);
+      opacity: 0.5;
+      margin-top: 2.5rem;
+      font-style: italic;
+    }
+
+    .story-attribution a {
+      color: var(--text-light);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s ease;
+    }
+
+    .story-attribution a:hover {
+      border-bottom-color: var(--text-light);
     }
 
     /* ─── GALLERY ─── */
@@ -323,21 +425,6 @@
       box-shadow: 0 8px 24px rgba(44, 36, 32, 0.08);
     }
 
-    .gallery-card .placeholder {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 3rem;
-      color: var(--border);
-      opacity: 0.5;
-    }
-
     .gallery-img {
       position: absolute;
       top: 0;
@@ -355,13 +442,6 @@
       padding: 3rem 1.25rem 1.25rem;
     }
 
-    .gallery-card .artist {
-      font-size: 0.75rem;
-      letter-spacing: 0.05em;
-      color: rgba(255,255,255,0.8);
-      font-weight: 400;
-    }
-
     .gallery-card .work-title {
       font-family: 'Cormorant Garamond', serif;
       font-size: 0.9rem;
@@ -369,25 +449,11 @@
       color: #fff;
     }
 
-    /* ─── SERVICES ─── */
-
-    #services {
-      background: var(--bg);
-      padding-bottom: 1.5rem;
-    }
-
-    .services-intro {
-      color: var(--text-secondary);
-      font-size: 0.95rem;
-      max-width: 600px;
-      line-height: 1.8;
-      margin-bottom: 0;
-    }
-
     /* ─── FEATURED IMAGE ─── */
 
     .featured-image {
       padding-top: 0;
+      background: var(--bg);
     }
 
     .framed-image {
@@ -414,78 +480,9 @@
       margin-top: 0.75rem;
     }
 
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-    }
-
-    .service-card {
-      padding: 2rem 1.75rem;
-      border: 1px solid var(--border-light);
-      border-radius: 2px;
-      background: var(--bg);
-      transition: border-color 0.3s ease;
-    }
-
-    .service-card:hover {
-      border-color: var(--border);
-    }
-
-    .service-icon {
-      font-size: 1.3rem;
-      margin-bottom: 1.25rem;
-      display: block;
-      color: var(--accent-terracotta);
-    }
-
-    .service-card:nth-child(2) .service-icon {
-      color: var(--accent-indigo);
-    }
-
-    .service-card:nth-child(3) .service-icon {
-      color: var(--accent-sage);
-    }
-
-    .service-card h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.35rem;
-      font-weight: 400;
-      margin-bottom: 0.75rem;
-      color: var(--text-primary);
-    }
-
-    .service-card .service-desc {
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      line-height: 1.7;
-      margin-bottom: 1.25rem;
-    }
-
-    .service-list {
-      list-style: none;
-      padding: 0;
-    }
-
-    .service-list li {
-      font-size: 0.82rem;
-      color: var(--text-light);
-      padding: 0.35rem 0;
-      padding-left: 1rem;
-      position: relative;
-    }
-
-    .service-list li::before {
-      content: '·';
-      position: absolute;
-      left: 0;
-      color: var(--border);
-      font-weight: 500;
-    }
-
     /* ─── JOURNAL ─── */
 
-    #journal {
+    #revista {
       background: var(--bg-warm);
     }
 
@@ -621,16 +618,16 @@
         padding: 4rem 1.5rem;
       }
 
-      .about-values {
-        flex-direction: column;
-      }
-
-      .services-grid {
-        grid-template-columns: 1fr;
-      }
-
       .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
+      }
+
+      .story-bg-image {
+        opacity: 0.06;
+      }
+
+      .story-section::after {
+        width: 65%;
       }
     }
 
@@ -676,7 +673,6 @@
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#galeria">Galería</a></li>
-      <li><a href="#services">Services</a></li>
       <li><a href="#revista">Revista</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -703,222 +699,52 @@
     <span class="hero-scroll">Scroll</span>
   </section>
 
-<!-- ═══════════════════════════════════════════════════════════
-     KOMARI STUDIOS — "Our Story" Section
+  <!-- ABOUT -->
+  <!-- Image: Katsukawa Shuncho, Playing Temari, c. 1780/1801, Art Institute of Chicago. Public Domain. -->
+  <!-- For production: replace the data:image src below with "Playing_Temari.jpg" -->
+  <section id="about" class="story-section">
+    <img
+      src= "Playing_Temari.jpg"
+      class="story-bg-image"
+      loading="lazy"
+    >
 
-     PREVIEW VERSION with embedded image.
-     For production, replace the data:image/jpeg;base64 src
-     with "Playing_Temari.jpg" and host the file alongside
-     index.html.
+    <div class="story-content fade-up">
+      <p class="section-label">Our Story</p>
 
-     Required files in the same directory as index.html:
-       • Ounen-mouhitsu.otf
-       • Playing_Temari.jpg
+      <h2>A small ball. A whole world.</h2>
 
-     Image attribution (Public Domain):
-     Katsukawa Shuncho, Playing Temari, c. 1780/1801,
-     Art Institute of Chicago. Public Domain.
-     ═══════════════════════════════════════════════════════════ -->
+      <div class="story-body">
+        <p>
+          The name Komari is rooted in the Japanese craft of temari,
+          hand stitched thread balls first shaped over a thousand years ago
+          from remnants of silk kimonos. Wrapped, divided, and embroidered
+          with patient geometric care, each temari held the maker's
+          quiet wish for a brilliant life.
+        </p>
+        <p>
+          We carry that meaning forward. Komari, a small ball,
+          is a reminder of the world we share: a small sphere
+          in a vast universe, wrapped in varied cultures,
+          connected by common threads.
+        </p>
+        <p>
+          Komari Studios creates where art, design, and narrative
+          converge with purpose. We create, curate, and collaborate
+          with care, honoring the traditions and communities
+          that shape our work.
+        </p>
+      </div>
 
-<section id="about" class="story-section">
+      <span class="kanji-mark" aria-hidden="true">小 鞠</span>
 
-  <style>
-    @font-face {
-      font-family: 'Ounen-mouhitsu';
-      src: url('Ounen-mouhitsu.otf') format('opentype');
-      font-weight: 400;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    .story-section {
-      position: relative;
-      overflow: hidden;
-      width: 100%;
-      padding: 6rem 1.5rem;
-      text-align: center;
-      color: var(--text-primary, #2C2420);
-      background: var(--bg, #FAF6F1);
-    }
-
-    /* ── Woodblock print pinned to right edge ── */
-
-    .story-bg-image {
-      position: absolute;
-      top: 0;
-      right: 0;
-      height: 100%;
-      width: auto;
-      max-width: none;
-      opacity: 0.09;
-      filter: blur(1px) saturate(0.3);
-      pointer-events: none;
-      z-index: 0;
-      object-fit: cover;
-      object-position: top right;
-    }
-
-    /* Soft fade on the left edge so it blends into the background */
-    .story-section::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      width: 40%;
-      background: linear-gradient(
-        to right,
-        var(--bg, #FAF6F1) 0%,
-        transparent 100%
-      );
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    /* ── Content sits above ── */
-
-    .story-content {
-      position: relative;
-      z-index: 1;
-      max-width: 680px;
-      margin: 0 auto;
-    }
-
-    .story-section .section-label {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.7rem;
-      font-weight: 300;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--text-light, #9A8B7E);
-      margin-bottom: 1rem;
-    }
-
-    .story-section h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.6rem, 3vw, 2.2rem);
-      font-weight: 400;
-      line-height: 1.3;
-      color: var(--text-primary, #2C2420);
-      margin: 0 0 1.5rem 0;
-    }
-
-    .story-section .story-body p {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.95rem;
-      font-weight: 300;
-      line-height: 1.8;
-      color: var(--text-secondary, #6B5D52);
-      max-width: 600px;
-      margin: 0 auto 1.6rem;
-    }
-
-    .story-section .story-body p:last-child {
-      margin-bottom: 0;
-    }
-
-    .story-section .kanji-mark {
-      display: block;
-      font-family: 'Ounen-mouhitsu', sans-serif;
-      font-style: normal;
-      font-weight: 400;
-      font-size: 3.5rem;
-      letter-spacing: 0.15em;
-      margin-top: 3rem;
-      background: linear-gradient(
-        135deg,
-        #C9593A,
-        #D4874E,
-        #D4A843,
-        #7BA768,
-        #5B8EAF,
-        #5B6AAF,
-        #C97B84
-      );
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      opacity: 0.45;
-    }
-
-    .story-attribution {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.62rem;
-      font-weight: 300;
-      color: var(--text-light, #9A8B7E);
-      opacity: 0.5;
-      margin-top: 2.5rem;
-      font-style: italic;
-    }
-
-    .story-attribution a {
-      color: var(--text-light, #9A8B7E);
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.3s ease;
-    }
-
-    .story-attribution a:hover {
-      border-bottom-color: var(--text-light, #9A8B7E);
-    }
-
-    /* ── Mobile ── */
-
-    @media (max-width: 768px) {
-      .story-bg-image {
-        opacity: 0.05;
-      }
-
-      .story-section::after {
-        width: 60%;
-      }
-    }
-  </style>
-
-  <!-- Background: hashira-e woodblock print, right edge -->
-  <img
-    src= "Playing_Temari.jpg"
-    class="story-bg-image"
-    loading="lazy"
-  >
-
-  <div class="story-content">
-    <p class="section-label">Our Story</p>
-
-    <h2>A small ball. A whole world.</h2>
-
-    <div class="story-body">
-      <p>
-        The name Komari is rooted in the Japanese craft of temari,
-        hand stitched thread balls first shaped over a thousand years ago
-        from remnants of silk kimonos. Wrapped, divided, and embroidered
-        with patient geometric care, each temari held the maker's
-        quiet wish for a brilliant life.
-      </p>
-      <p>
-        We carry that meaning forward. Komari, a small ball,
-        is a reminder of the world we share: a small sphere
-        in a vast universe, wrapped in varied cultures,
-        connected by common threads.
-      </p>
-      <p>
-        Komari Studios creates where art, design, and narrative
-        converge with purpose. We create, curate, and collaborate
-        with care, honoring the traditions and communities
-        that shape our work.
+      <p class="story-attribution">
+        <a href="https://www.curationist.org/works/work-aioc-36644" target="_blank" rel="noopener noreferrer">
+          Katsukawa Shuncho, <em>Playing Temari</em>, c. 1780/1801. Art Institute of Chicago. Public Domain.
+        </a>
       </p>
     </div>
-
-    <span class="kanji-mark" aria-hidden="true">小 鞠</span>
-
-    <p class="story-attribution">
-      <a href="https://www.curationist.org/works/work-aioc-36644" target="_blank" rel="noopener noreferrer">
-        Katsukawa Shuncho, <em>Playing Temari</em>, c. 1780/1801. Art Institute of Chicago. Public Domain.
-      </a>
-    </p>
-  </div>
-
-</section>
+  </section>
 
   <!-- GALERÍA -->
   <section id="galeria">
@@ -955,21 +781,12 @@
     </div>
   </section>
 
-  <!-- SERVICES -->
-  <section id="services">
-    <div class="section-inner fade-up">
-      <p class="section-label">Services</p>
-      <h2 class="section-title">Art Prints &amp; Limited Editions</h2>
-      <p class="services-intro">Archival quality prints and numbered editions of original works.</p>
-    </div>
-  </section>
-
   <!-- FEATURED IMAGE -->
   <section class="featured-image">
     <div class="section-inner fade-up">
       <div class="framed-image">
         <img src="arts.jpg" alt="Featured artwork">
-        <p class="image-caption">Jose Torres,Barnsdall Art Park - Los Angeles, 2016.</p>
+        <p class="image-caption">Jose Torres, Barnsdall Art Park, Los Angeles, 2016.</p>
       </div>
     </div>
   </section>
