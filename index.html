@@ -181,26 +181,31 @@
       color: var(--text-primary);
       background: var(--bg);
     }
-         /* Woodblock print as a pseudo-element background pinned right */
+            /* Woodblock print as a pseudo-element background pinned left */
     .story-section::before {
       content: '';
       position: absolute;
-      top: 50%;             /* Move to vertical center */
-      right: 20px;          /* Small padding from the edge */
-      transform: translateY(-50%); /* Perfectly center vertically */
-      width: 200px;         /* Reduced width (was 280px) */
-      height: 300px;        /* Added height to define the box */
+      top: 50%;             
+      left: 30px;           /* Changed from right to left */
+      transform: translateY(-50%); 
+      width: 180px;         
+      height: 280px;        
       
-      /* For production: replace with url('Playing_Temari.jpg') */
       background-image: url('Playing Temari.jpg');
-      
-      background-size: contain;    /* Shows full extent without cropping */
+      background-size: contain;    
       background-repeat: no-repeat;
-      background-position: center right;
-      opacity: 0.8;                /* Increased opacity (less transparent) */
+      background-position: center left;
+      
+      /* Transparency and Border */
+      opacity: 0.9;         /* Less transparent (0.1 is very clear, 1.0 is solid) */
+      border: 6px solid #fff; /* Classic white border */
+      outline: 1px solid var(--border); /* Thin outer frame line */
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Soft shadow for depth */
+
       pointer-events: none;
       z-index: 0;
     }
+
 
     }
 
