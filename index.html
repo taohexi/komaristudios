@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -11,41 +11,24 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
-    /* ─── CUSTOM FONT ─── */
     @font-face {
       font-family: 'Ounen-mouhitsu';
       src: url('Ounen-mouhitsu.otf') format('opentype');
-      font-weight: 400;
-      font-style: normal;
-      font-display: swap;
+      font-weight: 400; font-style: normal; font-display: swap;
     }
-
     :root {
-      --bg: #FAF6F1;
-      --bg-warm: #F5EDE3;
-      --text-primary: #2C2420;
-      --text-secondary: #6B5D52;
-      --text-light: #9A8B7E;
-      --accent-terracotta: #D4714E;
-      --accent-sage: #7BA768;
-      --accent-indigo: #5B6AAF;
-      --accent-gold: #D4A843;
-      --accent-rose: #C97B84;
-      --gallery-bg: #F0EAE0;
-      --gallery-card: #FDFBF8;
-      --border: #E2D9CE;
-      --border-light: #EDE7DE;
+      --bg: #FAF6F1; --bg-warm: #F5EDE3;
+      --text-primary: #2C2420; --text-secondary: #6B5D52; --text-light: #9A8B7E;
+      --accent-terracotta: #D4714E; --accent-sage: #7BA768;
+      --accent-indigo: #5B6AAF; --accent-gold: #D4A843; --accent-rose: #C97B84;
+      --gallery-bg: #F0EAE0; --gallery-card: #FDFBF8;
+      --border: #E2D9CE; --border-light: #EDE7DE;
     }
-
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; font-size: 16px; }
-
     body {
-      font-family: 'DM Sans', sans-serif;
-      background-color: var(--bg);
-      color: var(--text-primary);
-      line-height: 1.7;
-      font-weight: 300;
+      font-family: 'DM Sans', sans-serif; background-color: var(--bg);
+      color: var(--text-primary); line-height: 1.7; font-weight: 300;
       -webkit-font-smoothing: antialiased;
     }
 
@@ -54,25 +37,18 @@
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       padding: 0.85rem 2.5rem;
       display: flex; justify-content: space-between; align-items: center;
-      background: rgba(250, 246, 241, 0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border-light);
-      transition: background 0.3s ease;
+      background: rgba(250, 246, 241, 0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-light); transition: background 0.3s ease;
     }
     .nav-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.15rem; font-weight: 500;
-      letter-spacing: 0.06em; text-transform: uppercase;
-      color: var(--text-primary); text-decoration: none;
-      display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0;
+      font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 500;
+      letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-primary);
+      text-decoration: none; display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0;
     }
     .nav-logo-icon { width: 28px; height: 28px; }
-    .nav-logo .letter-k { color: #C9593A; }
-    .nav-logo .letter-o { color: #D4874E; }
-    .nav-logo .letter-m { color: #D4A843; }
-    .nav-logo .letter-a { color: #7BA768; }
-    .nav-logo .letter-r { color: #5B8EAF; }
-    .nav-logo .letter-i { color: #5B6AAF; }
+    .nav-logo .letter-k { color: #C9593A; } .nav-logo .letter-o { color: #D4874E; }
+    .nav-logo .letter-m { color: #D4A843; } .nav-logo .letter-a { color: #7BA768; }
+    .nav-logo .letter-r { color: #5B8EAF; } .nav-logo .letter-i { color: #5B6AAF; }
     .nav-links { display: flex; gap: 2rem; list-style: none; flex-shrink: 0; }
     .nav-links a {
       font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase;
@@ -97,127 +73,111 @@
       pointer-events: none;
     }
     .hero-brand { position: relative; z-index: 1; }
-    .hero-logo-icon {
-      width: clamp(80px, 12vw, 120px); height: clamp(80px, 12vw, 120px);
-      margin: 0 auto 2rem; display: block;
-    }
+    .hero-logo-icon { width: clamp(80px, 12vw, 120px); height: clamp(80px, 12vw, 120px); margin: 0 auto 2rem; display: block; }
     .hero-logotype {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 300;
-      letter-spacing: 0.35em; text-transform: uppercase;
+      font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-weight: 300; letter-spacing: 0.35em; text-transform: uppercase;
       margin-bottom: 1.5rem; color: var(--text-primary);
     }
-    .hero-logotype .letter-k { color: #C9593A; }
-    .hero-logotype .letter-o { color: #D4874E; }
-    .hero-logotype .letter-m { color: #D4A843; }
-    .hero-logotype .letter-a { color: #7BA768; }
-    .hero-logotype .letter-r { color: #5B8EAF; }
-    .hero-logotype .letter-i { color: #5B6AAF; }
+    .hero-logotype .letter-k { color: #C9593A; } .hero-logotype .letter-o { color: #D4874E; }
+    .hero-logotype .letter-m { color: #D4A843; } .hero-logotype .letter-a { color: #7BA768; }
+    .hero-logotype .letter-r { color: #5B8EAF; } .hero-logotype .letter-i { color: #5B6AAF; }
     .hero-studio {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.1rem, 2vw, 1.4rem); font-weight: 500;
-      letter-spacing: 0.55em; text-transform: uppercase;
+      font-family: 'Cormorant Garamond', serif; font-size: clamp(1.1rem, 2vw, 1.4rem);
+      font-weight: 500; letter-spacing: 0.55em; text-transform: uppercase;
       color: var(--text-secondary); margin-bottom: 3rem;
     }
     .hero-vision {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1rem, 2vw, 1.3rem); font-weight: 300; font-style: italic;
-      color: var(--text-secondary); max-width: 520px; line-height: 1.8;
+      font-family: 'Cormorant Garamond', serif; font-size: clamp(1rem, 2vw, 1.3rem);
+      font-weight: 300; font-style: italic; color: var(--text-secondary);
+      max-width: 520px; line-height: 1.8;
     }
     .hero-scroll {
-      position: absolute; bottom: 2.5rem; font-size: 0.7rem;
-      letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-light);
-      animation: softPulse 3s ease-in-out infinite;
+      position: absolute; bottom: 2.5rem; font-size: 0.7rem; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--text-light); animation: softPulse 3s ease-in-out infinite;
     }
     @keyframes softPulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
 
     /* ─── SECTIONS ─── */
     section { padding: 6rem 2rem; }
     .section-inner { max-width: 960px; margin: 0 auto; }
-    .section-label {
-      font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--text-light); margin-bottom: 1rem;
-    }
-    .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 400;
-      color: var(--text-primary); margin-bottom: 1.5rem; line-height: 1.3;
-    }
-    .section-body {
-      color: var(--text-secondary); font-size: 0.95rem;
-      max-width: 600px; line-height: 1.8;
-    }
+    .section-label { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-light); margin-bottom: 1rem; }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 400; color: var(--text-primary); margin-bottom: 1.5rem; line-height: 1.3; }
+    .section-body { color: var(--text-secondary); font-size: 0.95rem; max-width: 600px; line-height: 1.8; }
 
     /* ─── ABOUT / STORY ─── */
     .story-section {
       position: relative; overflow: hidden; width: 100%;
-      padding: 6rem 2rem; text-align: center;
+      min-height: 1155px;
+      padding: 6rem 2rem 0; margin: 0; text-align: center;
       color: var(--text-primary); background: var(--bg);
     }
-    .story-section::before {
-      content: '';
+
+    /* Woodblock print: actual div positioned right */
+    .story-bg-strip {
       position: absolute;
-      top: 0; right: 0; bottom: 0;
-      width: 400px;
-      background-image: url('Playing%20Temari.jpg');
-      background-position: top center;
-      background-repeat: no-repeat;
-      opacity: 0.35;
-      filter: blur(1px) saturate(0.35);
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 220px;
+      opacity: 0.5;
+      filter: blur(0.3px) saturate(0.88);
       pointer-events: none;
-      z-index: 0;
+      z-index: 1;
+      display: flex;
+      align-items: flex-start;
     }
-    .story-section::after {
-      content: '';
+    .story-bg-strip img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    /* Soft fade on the right edge of the image */
+    .story-bg-fade {
       position: absolute;
-      top: 0; right: 0; bottom: 0;
-      width: 200px;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 280px;
       background: linear-gradient(
-        to right,
+        to left,
         var(--bg) 0%,
-        rgba(250, 246, 241, 0.6) 50%,
+        rgba(250, 246, 241, 0.5) 40%,
         transparent 100%
       );
       pointer-events: none;
-      z-index: 1;
+      z-index: 2;
     }
+
     .story-content {
-      position: relative; z-index: 2;
+      position: relative; z-index: 3;
       max-width: 680px; margin: 0 auto;
     }
     .story-section .section-label {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.7rem; font-weight: 300;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--text-light); margin-bottom: 1rem;
+      font-family: 'DM Sans', sans-serif; font-size: 0.7rem; font-weight: 300;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-light); margin-bottom: 1rem;
     }
     .story-section h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 400;
-      line-height: 1.3; color: var(--text-primary); margin: 0 0 1.5rem 0;
+      font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 400; line-height: 1.3; color: var(--text-primary); margin: 0 0 1.5rem 0;
     }
     .story-section .story-body p {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.95rem; font-weight: 300; line-height: 1.8;
-      color: var(--text-secondary); max-width: 600px; margin: 0 auto 1.6rem;
+      font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 300;
+      line-height: 1.8; color: var(--text-secondary); max-width: 600px; margin: 0 auto 1.6rem;
     }
     .story-section .story-body p:last-child { margin-bottom: 0; }
     .story-section .kanji-mark {
-      display: block;
-      font-family: 'Ounen-mouhitsu', sans-serif;
-      font-style: normal; font-weight: 400;
-      font-size: 3.5rem; letter-spacing: 0.15em; margin-top: 3rem;
+      display: block; font-family: 'Ounen-mouhitsu', sans-serif;
+      font-style: normal; font-weight: 400; font-size: 3.5rem;
+      letter-spacing: 0.15em; margin-top: 3rem;
       background: linear-gradient(135deg, #C9593A, #D4874E, #D4A843, #7BA768, #5B8EAF, #5B6AAF, #C97B84);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      opacity: 0.45;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; opacity: 0.45;
     }
     .story-attribution {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.62rem; font-weight: 300;
-      color: var(--text-light); opacity: 0.5;
-      margin-top: 2.5rem; font-style: italic;
+      font-family: 'DM Sans', sans-serif; font-size: 0.62rem; font-weight: 300;
+      color: var(--text-light); opacity: 0.5; margin-top: 2.5rem; font-style: italic;
     }
     .story-attribution a {
       color: var(--text-light); text-decoration: none;
@@ -227,34 +187,21 @@
 
     /* ─── GALLERY ─── */
     #galeria { background: var(--gallery-bg); }
-    .gallery-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.25rem; margin-top: 3rem;
-    }
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; margin-top: 3rem; }
     .gallery-card {
-      aspect-ratio: 3 / 4; background: var(--gallery-card);
-      border: 1px solid var(--border); border-radius: 2px;
-      display: flex; flex-direction: column; justify-content: flex-end;
+      aspect-ratio: 3 / 4; background: var(--gallery-card); border: 1px solid var(--border);
+      border-radius: 2px; display: flex; flex-direction: column; justify-content: flex-end;
       padding: 1.25rem; position: relative; overflow: hidden;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .gallery-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(44, 36, 32, 0.08);
-    }
-    .gallery-img {
-      position: absolute; top: 0; left: 0;
-      width: 100%; height: 100%; object-fit: cover;
-    }
+    .gallery-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(44, 36, 32, 0.08); }
+    .gallery-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
     .gallery-card .card-info {
       position: relative; z-index: 1;
       background: linear-gradient(transparent, rgba(0,0,0,0.45));
       margin: -1.25rem; padding: 3rem 1.25rem 1.25rem;
     }
-    .gallery-card .work-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.9rem; font-style: italic; color: #fff;
-    }
+    .gallery-card .work-title { font-family: 'Cormorant Garamond', serif; font-size: 0.9rem; font-style: italic; color: #fff; }
 
     /* ─── FEATURED IMAGE ─── */
     .featured-image { padding-top: 0; background: var(--bg); }
@@ -264,58 +211,32 @@
       box-shadow: 0 4px 20px rgba(44, 36, 32, 0.08);
     }
     .framed-image img { width: 100%; height: auto; display: block; }
-    .image-caption {
-      text-align: right; font-family: 'Cormorant Garamond', serif;
-      font-size: 0.82rem; font-style: italic;
-      color: var(--text-light); margin-top: 0.75rem;
-    }
+    .image-caption { text-align: right; font-family: 'Cormorant Garamond', serif; font-size: 0.82rem; font-style: italic; color: var(--text-light); margin-top: 0.75rem; }
 
     /* ─── JOURNAL ─── */
     #revista { background: var(--bg-warm); }
-    .journal-entries {
-      margin-top: 3rem; display: flex; flex-direction: column; gap: 1.5rem;
-    }
-    .journal-entry {
-      padding: 1.75rem; border: 1px solid var(--border-light);
-      border-radius: 2px; background: var(--bg); transition: border-color 0.3s ease;
-    }
+    .journal-entries { margin-top: 3rem; display: flex; flex-direction: column; gap: 1.5rem; }
+    .journal-entry { padding: 1.75rem; border: 1px solid var(--border-light); border-radius: 2px; background: var(--bg); transition: border-color 0.3s ease; }
     .journal-entry:hover { border-color: var(--border); }
-    .journal-tag {
-      font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--accent-terracotta); margin-bottom: 0.5rem;
-    }
-    .journal-entry h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.15rem; font-weight: 400;
-      color: var(--text-primary); margin-bottom: 0.4rem;
-    }
+    .journal-tag { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-terracotta); margin-bottom: 0.5rem; }
+    .journal-entry h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 400; color: var(--text-primary); margin-bottom: 0.4rem; }
     .journal-entry p { font-size: 0.85rem; color: var(--text-light); line-height: 1.6; }
 
     /* ─── CONTACT ─── */
     #contact { background: var(--bg); text-align: center; }
-    #contact .section-inner {
-      display: flex; flex-direction: column; align-items: center;
-    }
+    #contact .section-inner { display: flex; flex-direction: column; align-items: center; }
     .contact-email {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.15rem; color: var(--accent-terracotta);
-      text-decoration: none; border-bottom: 1px solid transparent;
-      transition: border-color 0.3s ease; margin-top: 1.5rem;
+      font-family: 'Cormorant Garamond', serif; font-size: 1.15rem;
+      color: var(--accent-terracotta); text-decoration: none;
+      border-bottom: 1px solid transparent; transition: border-color 0.3s ease; margin-top: 1.5rem;
     }
     .contact-email:hover { border-bottom-color: var(--accent-terracotta); }
     .contact-social { display: flex; gap: 2rem; margin-top: 2rem; list-style: none; }
-    .contact-social a {
-      font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase;
-      color: var(--text-light); text-decoration: none; transition: color 0.25s ease;
-    }
+    .contact-social a { font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-light); text-decoration: none; transition: color 0.25s ease; }
     .contact-social a:hover { color: var(--text-primary); }
 
     /* ─── FOOTER ─── */
-    footer {
-      text-align: center; padding: 2.5rem 2rem; font-size: 0.72rem;
-      letter-spacing: 0.06em; color: var(--text-light);
-      border-top: 1px solid var(--border-light);
-    }
+    footer { text-align: center; padding: 2.5rem 2rem; font-size: 0.72rem; letter-spacing: 0.06em; color: var(--text-light); border-top: 1px solid var(--border-light); }
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 768px) {
@@ -330,20 +251,17 @@
       .nav-toggle { display: block; }
       section { padding: 4rem 1.5rem; }
       .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-      .story-section::before { width: 180px; opacity: 0.07; }
-      .story-section::after { width: 220px; }
+      .story-bg-strip { width: 140px; opacity: 0.12; }
+      .story-bg-fade { width: 160px; }
     }
     @media (max-width: 480px) {
       .gallery-grid { grid-template-columns: 1fr; }
-      .story-section::before { width: 120px; opacity: 0.05; }
-      .story-section::after { width: 160px; }
+      .story-bg-strip { width: 90px; opacity: 0.08; }
+      .story-bg-fade { width: 100px; }
     }
 
     /* ─── ANIMATIONS ─── */
-    .fade-up {
-      opacity: 0; transform: translateY(20px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
+    .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .fade-up.visible { opacity: 1; transform: translateY(0); }
   </style>
 </head>
@@ -396,12 +314,11 @@
   </section>
 
   <!-- ABOUT -->
-  <!-- Image: Katsukawa Shuncho, Playing Temari, c. 1780/1801, Art Institute of Chicago. Public Domain. -->
   <section id="about" class="story-section">
-    <div class="story-content fade-up">
-      <p class="section-label">Our Story</p>
-      <h2>A small ball. A whole world.</h2>
-      <div class="story-body">
+    <!-- Woodblock print strip: right edge -->
+    <div class="story-bg-strip">
+      <img
+        src=" ('Playing Temari.jpg');
         <p>
           The name Komari is rooted in the Japanese craft of temari,
           hand stitched thread balls first shaped over a thousand years ago
