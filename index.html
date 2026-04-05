@@ -38,7 +38,6 @@
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     html { scroll-behavior: smooth; font-size: 16px; }
 
     body {
@@ -51,7 +50,6 @@
     }
 
     /* ─── NAV ─── */
-
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       padding: 0.85rem 2.5rem;
@@ -61,7 +59,6 @@
       border-bottom: 1px solid var(--border-light);
       transition: background 0.3s ease;
     }
-
     .nav-logo {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.15rem; font-weight: 500;
@@ -69,35 +66,28 @@
       color: var(--text-primary); text-decoration: none;
       display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0;
     }
-
     .nav-logo-icon { width: 28px; height: 28px; }
-
     .nav-logo .letter-k { color: #C9593A; }
     .nav-logo .letter-o { color: #D4874E; }
     .nav-logo .letter-m { color: #D4A843; }
     .nav-logo .letter-a { color: #7BA768; }
     .nav-logo .letter-r { color: #5B8EAF; }
     .nav-logo .letter-i { color: #5B6AAF; }
-
     .nav-links { display: flex; gap: 2rem; list-style: none; flex-shrink: 0; }
-
     .nav-links a {
       font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase;
       color: var(--text-secondary); text-decoration: none; transition: color 0.25s ease;
     }
     .nav-links a:hover { color: var(--accent-terracotta); }
-
     .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
     .nav-toggle span { display: block; width: 22px; height: 1.5px; background: var(--text-primary); margin: 5px 0; transition: all 0.3s ease; }
 
     /* ─── HERO ─── */
-
     .hero {
       min-height: 100vh; display: flex; flex-direction: column;
       justify-content: center; align-items: center; text-align: center;
       padding: 6rem 2rem 4rem; position: relative; overflow: hidden;
     }
-
     .hero::before {
       content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
       background:
@@ -106,106 +96,81 @@
         radial-gradient(ellipse at 50% 80%, rgba(201, 123, 132, 0.04) 0%, transparent 50%);
       pointer-events: none;
     }
-
     .hero-brand { position: relative; z-index: 1; }
-
     .hero-logo-icon {
       width: clamp(80px, 12vw, 120px); height: clamp(80px, 12vw, 120px);
       margin: 0 auto 2rem; display: block;
     }
-
     .hero-logotype {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 300;
       letter-spacing: 0.35em; text-transform: uppercase;
       margin-bottom: 1.5rem; color: var(--text-primary);
     }
-
     .hero-logotype .letter-k { color: #C9593A; }
     .hero-logotype .letter-o { color: #D4874E; }
     .hero-logotype .letter-m { color: #D4A843; }
     .hero-logotype .letter-a { color: #7BA768; }
     .hero-logotype .letter-r { color: #5B8EAF; }
     .hero-logotype .letter-i { color: #5B6AAF; }
-
     .hero-studio {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(1.1rem, 2vw, 1.4rem); font-weight: 500;
       letter-spacing: 0.55em; text-transform: uppercase;
       color: var(--text-secondary); margin-bottom: 3rem;
     }
-
     .hero-vision {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(1rem, 2vw, 1.3rem); font-weight: 300; font-style: italic;
       color: var(--text-secondary); max-width: 520px; line-height: 1.8;
     }
-
     .hero-scroll {
       position: absolute; bottom: 2.5rem; font-size: 0.7rem;
       letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-light);
       animation: softPulse 3s ease-in-out infinite;
     }
-
     @keyframes softPulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
 
     /* ─── SECTIONS ─── */
-
     section { padding: 6rem 2rem; }
     .section-inner { max-width: 960px; margin: 0 auto; }
-
     .section-label {
       font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
       color: var(--text-light); margin-bottom: 1rem;
     }
-
     .section-title {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 400;
       color: var(--text-primary); margin-bottom: 1.5rem; line-height: 1.3;
     }
-
     .section-body {
       color: var(--text-secondary); font-size: 0.95rem;
       max-width: 600px; line-height: 1.8;
     }
 
     /* ─── ABOUT / STORY ─── */
-
     .story-section {
-      position: relative;
-      overflow: hidden;
-      width: 100%;
-      padding: 6rem 2rem;
-      text-align: center;
-      color: var(--text-primary);
-      background: var(--bg);
+      position: relative; overflow: hidden; width: 100%;
+      padding: 6rem 2rem; text-align: center;
+      color: var(--text-primary); background: var(--bg);
     }
-
-    /* Woodblock print as a pseudo-element background pinned right */
     .story-section::before {
       content: '';
       position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
+      top: 0; right: 0; bottom: 0;
       width: 280px;
-      /* For production: replace with url('Playing_Temari.jpg') */
       background-image: url('Playing Temari.jpg')
+      background-position: top center;
       background-repeat: no-repeat;
       opacity: 0.12;
       filter: blur(1px) saturate(0.35);
       pointer-events: none;
       z-index: 0;
     }
-
-    /* Soft fade from background color into the image */
     .story-section::after {
       content: '';
       position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
+      top: 0; right: 0; bottom: 0;
       width: 350px;
       background: linear-gradient(
         to right,
@@ -216,35 +181,27 @@
       pointer-events: none;
       z-index: 1;
     }
-
     .story-content {
-      position: relative;
-      z-index: 2;
-      max-width: 680px;
-      margin: 0 auto;
+      position: relative; z-index: 2;
+      max-width: 680px; margin: 0 auto;
     }
-
     .story-section .section-label {
       font-family: 'DM Sans', sans-serif;
       font-size: 0.7rem; font-weight: 300;
       letter-spacing: 0.2em; text-transform: uppercase;
       color: var(--text-light); margin-bottom: 1rem;
     }
-
     .story-section h2 {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 400;
       line-height: 1.3; color: var(--text-primary); margin: 0 0 1.5rem 0;
     }
-
     .story-section .story-body p {
       font-family: 'DM Sans', sans-serif;
       font-size: 0.95rem; font-weight: 300; line-height: 1.8;
       color: var(--text-secondary); max-width: 600px; margin: 0 auto 1.6rem;
     }
-
     .story-section .story-body p:last-child { margin-bottom: 0; }
-
     .story-section .kanji-mark {
       display: block;
       font-family: 'Ounen-mouhitsu', sans-serif;
@@ -256,14 +213,12 @@
       background-clip: text;
       opacity: 0.45;
     }
-
     .story-attribution {
       font-family: 'DM Sans', sans-serif;
       font-size: 0.62rem; font-weight: 300;
       color: var(--text-light); opacity: 0.5;
       margin-top: 2.5rem; font-style: italic;
     }
-
     .story-attribution a {
       color: var(--text-light); text-decoration: none;
       border-bottom: 1px solid transparent; transition: border-color 0.3s ease;
@@ -271,14 +226,11 @@
     .story-attribution a:hover { border-bottom-color: var(--text-light); }
 
     /* ─── GALLERY ─── */
-
     #galeria { background: var(--gallery-bg); }
-
     .gallery-grid {
       display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1.25rem; margin-top: 3rem;
     }
-
     .gallery-card {
       aspect-ratio: 3 / 4; background: var(--gallery-card);
       border: 1px solid var(--border); border-radius: 2px;
@@ -286,40 +238,32 @@
       padding: 1.25rem; position: relative; overflow: hidden;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-
     .gallery-card:hover {
       transform: translateY(-3px);
       box-shadow: 0 8px 24px rgba(44, 36, 32, 0.08);
     }
-
     .gallery-img {
       position: absolute; top: 0; left: 0;
       width: 100%; height: 100%; object-fit: cover;
     }
-
     .gallery-card .card-info {
       position: relative; z-index: 1;
       background: linear-gradient(transparent, rgba(0,0,0,0.45));
       margin: -1.25rem; padding: 3rem 1.25rem 1.25rem;
     }
-
     .gallery-card .work-title {
       font-family: 'Cormorant Garamond', serif;
       font-size: 0.9rem; font-style: italic; color: #fff;
     }
 
     /* ─── FEATURED IMAGE ─── */
-
     .featured-image { padding-top: 0; background: var(--bg); }
-
     .framed-image {
       max-width: 800px; margin: 0 auto; padding: 1.5rem;
       background: var(--gallery-card); border: 1px solid var(--border);
       box-shadow: 0 4px 20px rgba(44, 36, 32, 0.08);
     }
-
     .framed-image img { width: 100%; height: auto; display: block; }
-
     .image-caption {
       text-align: right; font-family: 'Cormorant Garamond', serif;
       font-size: 0.82rem; font-style: italic;
@@ -327,40 +271,31 @@
     }
 
     /* ─── JOURNAL ─── */
-
     #revista { background: var(--bg-warm); }
-
     .journal-entries {
       margin-top: 3rem; display: flex; flex-direction: column; gap: 1.5rem;
     }
-
     .journal-entry {
       padding: 1.75rem; border: 1px solid var(--border-light);
       border-radius: 2px; background: var(--bg); transition: border-color 0.3s ease;
     }
     .journal-entry:hover { border-color: var(--border); }
-
     .journal-tag {
       font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase;
       color: var(--accent-terracotta); margin-bottom: 0.5rem;
     }
-
     .journal-entry h3 {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.15rem; font-weight: 400;
       color: var(--text-primary); margin-bottom: 0.4rem;
     }
-
     .journal-entry p { font-size: 0.85rem; color: var(--text-light); line-height: 1.6; }
 
     /* ─── CONTACT ─── */
-
     #contact { background: var(--bg); text-align: center; }
-
     #contact .section-inner {
       display: flex; flex-direction: column; align-items: center;
     }
-
     .contact-email {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.15rem; color: var(--accent-terracotta);
@@ -368,9 +303,7 @@
       transition: border-color 0.3s ease; margin-top: 1.5rem;
     }
     .contact-email:hover { border-bottom-color: var(--accent-terracotta); }
-
     .contact-social { display: flex; gap: 2rem; margin-top: 2rem; list-style: none; }
-
     .contact-social a {
       font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase;
       color: var(--text-light); text-decoration: none; transition: color 0.25s ease;
@@ -378,7 +311,6 @@
     .contact-social a:hover { color: var(--text-primary); }
 
     /* ─── FOOTER ─── */
-
     footer {
       text-align: center; padding: 2.5rem 2rem; font-size: 0.72rem;
       letter-spacing: 0.06em; color: var(--text-light);
@@ -386,10 +318,8 @@
     }
 
     /* ─── RESPONSIVE ─── */
-
     @media (max-width: 768px) {
       nav { padding: 1rem 1.5rem; }
-
       .nav-links {
         display: none; position: absolute; top: 100%; left: 0; right: 0;
         flex-direction: column; background: rgba(250, 246, 241, 0.97);
@@ -398,15 +328,11 @@
       }
       .nav-links.open { display: flex; }
       .nav-toggle { display: block; }
-
       section { padding: 4rem 1.5rem; }
-
       .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-
       .story-section::before { width: 180px; opacity: 0.07; }
       .story-section::after { width: 220px; }
     }
-
     @media (max-width: 480px) {
       .gallery-grid { grid-template-columns: 1fr; }
       .story-section::before { width: 120px; opacity: 0.05; }
@@ -414,7 +340,6 @@
     }
 
     /* ─── ANIMATIONS ─── */
-
     .fade-up {
       opacity: 0; transform: translateY(20px);
       transition: opacity 0.7s ease, transform 0.7s ease;
@@ -472,13 +397,10 @@
 
   <!-- ABOUT -->
   <!-- Image: Katsukawa Shuncho, Playing Temari, c. 1780/1801, Art Institute of Chicago. Public Domain. -->
-  <!-- For production: replace the data:image in .story-section::before with url('Playing_Temari.jpg') -->
   <section id="about" class="story-section">
     <div class="story-content fade-up">
       <p class="section-label">Our Story</p>
-
       <h2>A small ball. A whole world.</h2>
-
       <div class="story-body">
         <p>
           The name Komari is rooted in the Japanese craft of temari,
@@ -500,9 +422,7 @@
           that shape our work.
         </p>
       </div>
-
       <span class="kanji-mark" aria-hidden="true">小 鞠</span>
-
       <p class="story-attribution">
         <a href="https://www.curationist.org/works/work-aioc-36644" target="_blank" rel="noopener noreferrer">
           Katsukawa Shuncho, <em>Playing Temari</em>, c. 1780/1801. Art Institute of Chicago. Public Domain.
@@ -520,27 +440,19 @@
       <div class="gallery-grid">
         <div class="gallery-card">
           <img src="cielo%20y%20flor.jpeg" alt="Cielo y Flor" class="gallery-img">
-          <div class="card-info">
-            <span class="work-title">Cielo y Flor</span>
-          </div>
+          <div class="card-info"><span class="work-title">Cielo y Flor</span></div>
         </div>
         <div class="gallery-card">
           <img src="flor%20naranja.jpeg" alt="Flor Naranja" class="gallery-img">
-          <div class="card-info">
-            <span class="work-title">Flor Naranja</span>
-          </div>
+          <div class="card-info"><span class="work-title">Flor Naranja</span></div>
         </div>
         <div class="gallery-card">
           <img src="salio%20el%20sol.jpeg" alt="Salio el Sol" class="gallery-img">
-          <div class="card-info">
-            <span class="work-title">Salio el Sol</span>
-          </div>
+          <div class="card-info"><span class="work-title">Salio el Sol</span></div>
         </div>
         <div class="gallery-card">
           <img src="DSC_5159.JPG" alt="Jose Torres, Seaside CA, 2026" class="gallery-img">
-          <div class="card-info">
-            <span class="work-title">Arboles de Luz</span>
-          </div>
+          <div class="card-info"><span class="work-title">Arboles de Luz</span></div>
         </div>
       </div>
     </div>
@@ -588,21 +500,16 @@
   </section>
 
   <!-- FOOTER -->
-  <footer>
-    &copy; 2026 Komari Studios, LLC
-  </footer>
+  <footer>&copy; 2026 Komari Studios, LLC</footer>
 
   <!-- SCROLL ANIMATION -->
   <script>
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
+        if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.15 });
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
   </script>
-
 </body>
 </html>
