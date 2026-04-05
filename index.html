@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -26,194 +26,55 @@
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; font-size: 16px; }
-    body {
-      font-family: 'DM Sans', sans-serif; background-color: var(--bg);
-      color: var(--text-primary); line-height: 1.7; font-weight: 300;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* ─── NAV ─── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      padding: 0.85rem 2.5rem;
-      display: flex; justify-content: space-between; align-items: center;
-      background: rgba(250, 246, 241, 0.92); backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border-light); transition: background 0.3s ease;
-    }
-    .nav-logo {
-      font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 500;
-      letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-primary);
-      text-decoration: none; display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0;
-    }
+    body { font-family: 'DM Sans', sans-serif; background-color: var(--bg); color: var(--text-primary); line-height: 1.7; font-weight: 300; -webkit-font-smoothing: antialiased; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0.85rem 2.5rem; display: flex; justify-content: space-between; align-items: center; background: rgba(250, 246, 241, 0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-light); transition: background 0.3s ease; }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0; }
     .nav-logo-icon { width: 28px; height: 28px; }
-    .nav-logo .letter-k { color: #C9593A; } .nav-logo .letter-o { color: #D4874E; }
-    .nav-logo .letter-m { color: #D4A843; } .nav-logo .letter-a { color: #7BA768; }
-    .nav-logo .letter-r { color: #5B8EAF; } .nav-logo .letter-i { color: #5B6AAF; }
+    .nav-logo .letter-k { color: #C9593A; } .nav-logo .letter-o { color: #D4874E; } .nav-logo .letter-m { color: #D4A843; } .nav-logo .letter-a { color: #7BA768; } .nav-logo .letter-r { color: #5B8EAF; } .nav-logo .letter-i { color: #5B6AAF; }
     .nav-links { display: flex; gap: 2rem; list-style: none; flex-shrink: 0; }
-    .nav-links a {
-      font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase;
-      color: var(--text-secondary); text-decoration: none; transition: color 0.25s ease;
-    }
+    .nav-links a { font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-secondary); text-decoration: none; transition: color 0.25s ease; }
     .nav-links a:hover { color: var(--accent-terracotta); }
     .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
     .nav-toggle span { display: block; width: 22px; height: 1.5px; background: var(--text-primary); margin: 5px 0; transition: all 0.3s ease; }
-
-    /* ─── HERO ─── */
-    .hero {
-      min-height: 100vh; display: flex; flex-direction: column;
-      justify-content: center; align-items: center; text-align: center;
-      padding: 6rem 2rem 4rem; position: relative; overflow: hidden;
-    }
-    .hero::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-      background:
-        radial-gradient(ellipse at 20% 50%, rgba(212, 113, 78, 0.06) 0%, transparent 60%),
-        radial-gradient(ellipse at 80% 30%, rgba(91, 106, 175, 0.05) 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 80%, rgba(201, 123, 132, 0.04) 0%, transparent 50%);
-      pointer-events: none;
-    }
+    .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 6rem 2rem 4rem; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse at 20% 50%, rgba(212, 113, 78, 0.06) 0%, transparent 60%), radial-gradient(ellipse at 80% 30%, rgba(91, 106, 175, 0.05) 0%, transparent 50%), radial-gradient(ellipse at 50% 80%, rgba(201, 123, 132, 0.04) 0%, transparent 50%); pointer-events: none; }
     .hero-brand { position: relative; z-index: 1; }
     .hero-logo-icon { width: clamp(80px, 12vw, 120px); height: clamp(80px, 12vw, 120px); margin: 0 auto 2rem; display: block; }
-    .hero-logotype {
-      font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 5vw, 3.6rem);
-      font-weight: 300; letter-spacing: 0.35em; text-transform: uppercase;
-      margin-bottom: 1.5rem; color: var(--text-primary);
-    }
-    .hero-logotype .letter-k { color: #C9593A; } .hero-logotype .letter-o { color: #D4874E; }
-    .hero-logotype .letter-m { color: #D4A843; } .hero-logotype .letter-a { color: #7BA768; }
-    .hero-logotype .letter-r { color: #5B8EAF; } .hero-logotype .letter-i { color: #5B6AAF; }
-    .hero-studio {
-      font-family: 'Cormorant Garamond', serif; font-size: clamp(1.1rem, 2vw, 1.4rem);
-      font-weight: 500; letter-spacing: 0.55em; text-transform: uppercase;
-      color: var(--text-secondary); margin-bottom: 3rem;
-    }
-    .hero-vision {
-      font-family: 'Cormorant Garamond', serif; font-size: clamp(1rem, 2vw, 1.3rem);
-      font-weight: 300; font-style: italic; color: var(--text-secondary);
-      max-width: 520px; line-height: 1.8;
-    }
-    .hero-scroll {
-      position: absolute; bottom: 2.5rem; font-size: 0.7rem; letter-spacing: 0.15em;
-      text-transform: uppercase; color: var(--text-light); animation: softPulse 3s ease-in-out infinite;
-    }
+    .hero-logotype { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 300; letter-spacing: 0.35em; text-transform: uppercase; margin-bottom: 1.5rem; color: var(--text-primary); }
+    .hero-logotype .letter-k { color: #C9593A; } .hero-logotype .letter-o { color: #D4874E; } .hero-logotype .letter-m { color: #D4A843; } .hero-logotype .letter-a { color: #7BA768; } .hero-logotype .letter-r { color: #5B8EAF; } .hero-logotype .letter-i { color: #5B6AAF; }
+    .hero-studio { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.1rem, 2vw, 1.4rem); font-weight: 500; letter-spacing: 0.55em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 3rem; }
+    .hero-vision { font-family: 'Cormorant Garamond', serif; font-size: clamp(1rem, 2vw, 1.3rem); font-weight: 300; font-style: italic; color: var(--text-secondary); max-width: 520px; line-height: 1.8; }
+    .hero-scroll { position: absolute; bottom: 2.5rem; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-light); animation: softPulse 3s ease-in-out infinite; }
     @keyframes softPulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
-
-    /* ─── SECTIONS ─── */
     section { padding: 6rem 2rem; }
     .section-inner { max-width: 960px; margin: 0 auto; }
     .section-label { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-light); margin-bottom: 1rem; }
     .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 400; color: var(--text-primary); margin-bottom: 1.5rem; line-height: 1.3; }
     .section-body { color: var(--text-secondary); font-size: 0.95rem; max-width: 600px; line-height: 1.8; }
-
-    /* ─── ABOUT / STORY ─── */
-    .story-section {
-      position: relative; overflow: hidden; width: 100%;
-      min-height: 1155px;
-      padding: 6rem 2rem 0; margin: 0; text-align: center;
-      color: var(--text-primary); background: var(--bg);
-    }
-
-    /* Woodblock print: actual div positioned right */
-    .story-bg-strip {
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      width: 220px;
-      opacity: 0.5;
-      filter: blur(0.3px) saturate(0.88);
-      pointer-events: none;
-      z-index: 1;
-      display: flex;
-      align-items: flex-start;
-    }
-    .story-bg-strip img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-
-    /* Soft fade on the right edge of the image */
-    .story-bg-fade {
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      width: 280px;
-      background: linear-gradient(
-        to left,
-        var(--bg) 0%,
-        rgba(250, 246, 241, 0.5) 40%,
-        transparent 100%
-      );
-      pointer-events: none;
-      z-index: 2;
-    }
-
-    .story-content {
-      position: relative; z-index: 3;
-      max-width: 680px; margin: 0 auto;
-    }
-    .story-section .section-label {
-      font-family: 'DM Sans', sans-serif; font-size: 0.7rem; font-weight: 300;
-      letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-light); margin-bottom: 1rem;
-    }
-    .story-section h2 {
-      font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 3vw, 2.2rem);
-      font-weight: 400; line-height: 1.3; color: var(--text-primary); margin: 0 0 1.5rem 0;
-    }
-    .story-section .story-body p {
-      font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 300;
-      line-height: 1.8; color: var(--text-secondary); max-width: 600px; margin: 0 auto 1.6rem;
-    }
+    .story-section { position: relative; overflow: hidden; width: 100%; min-height: 1155px; padding: 6rem 2rem 0; margin: 0; text-align: center; color: var(--text-primary); background: var(--bg); }
+    .story-bg-strip { position: absolute; top: 0; left: 0; bottom: 0; width: 220px; opacity: 0.3; filter: blur(0.3px) saturate(0.85); pointer-events: none; z-index: 1; display: flex; align-items: flex-start; }
+    .story-bg-strip img { display: block; width: 100%; height: auto; }
+    .story-bg-fade { position: absolute; top: 0; left: 0; bottom: 0; width: 280px; background: linear-gradient(to left, var(--bg) 0%, rgba(250, 246, 241, 0.5) 40%, transparent 100%); pointer-events: none; z-index: 2; }
+    .story-content { position: relative; z-index: 3; max-width: 680px; margin: 0 auto; }
+    .story-section .section-label { font-family: 'DM Sans', sans-serif; font-size: 0.7rem; font-weight: 300; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-light); margin-bottom: 1rem; }
+    .story-section h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 400; line-height: 1.3; color: var(--text-primary); margin: 0 0 1.5rem 0; }
+    .story-section .story-body p { font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 300; line-height: 1.8; color: var(--text-secondary); max-width: 600px; margin: 0 auto 1.6rem; }
     .story-section .story-body p:last-child { margin-bottom: 0; }
-    .story-section .kanji-mark {
-      display: block; font-family: 'Ounen-mouhitsu', sans-serif;
-      font-style: normal; font-weight: 400; font-size: 3.5rem;
-      letter-spacing: 0.15em; margin-top: 3rem;
-      background: linear-gradient(135deg, #C9593A, #D4874E, #D4A843, #7BA768, #5B8EAF, #5B6AAF, #C97B84);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text; opacity: 0.45;
-    }
-    .story-attribution {
-      font-family: 'DM Sans', sans-serif; font-size: 0.62rem; font-weight: 300;
-      color: var(--text-light); opacity: 0.5; margin-top: 2.5rem; font-style: italic;
-    }
-    .story-attribution a {
-      color: var(--text-light); text-decoration: none;
-      border-bottom: 1px solid transparent; transition: border-color 0.3s ease;
-    }
+    .story-section .kanji-mark { display: block; font-family: 'Ounen-mouhitsu', sans-serif; font-style: normal; font-weight: 400; font-size: 3.5rem; letter-spacing: 0.15em; margin-top: 3rem; background: linear-gradient(135deg, #C9593A, #D4874E, #D4A843, #7BA768, #5B8EAF, #5B6AAF, #C97B84); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; opacity: 0.45; }
+    .story-attribution { font-family: 'DM Sans', sans-serif; font-size: 0.62rem; font-weight: 300; color: var(--text-light); opacity: 0.5; margin-top: 2.5rem; font-style: italic; }
+    .story-attribution a { color: var(--text-light); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.3s ease; }
     .story-attribution a:hover { border-bottom-color: var(--text-light); }
-
-    /* ─── GALLERY ─── */
     #galeria { background: var(--gallery-bg); }
     .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; margin-top: 3rem; }
-    .gallery-card {
-      aspect-ratio: 3 / 4; background: var(--gallery-card); border: 1px solid var(--border);
-      border-radius: 2px; display: flex; flex-direction: column; justify-content: flex-end;
-      padding: 1.25rem; position: relative; overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+    .gallery-card { aspect-ratio: 3 / 4; background: var(--gallery-card); border: 1px solid var(--border); border-radius: 2px; display: flex; flex-direction: column; justify-content: flex-end; padding: 1.25rem; position: relative; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; }
     .gallery-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(44, 36, 32, 0.08); }
     .gallery-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
-    .gallery-card .card-info {
-      position: relative; z-index: 1;
-      background: linear-gradient(transparent, rgba(0,0,0,0.45));
-      margin: -1.25rem; padding: 3rem 1.25rem 1.25rem;
-    }
+    .gallery-card .card-info { position: relative; z-index: 1; background: linear-gradient(transparent, rgba(0,0,0,0.45)); margin: -1.25rem; padding: 3rem 1.25rem 1.25rem; }
     .gallery-card .work-title { font-family: 'Cormorant Garamond', serif; font-size: 0.9rem; font-style: italic; color: #fff; }
-
-    /* ─── FEATURED IMAGE ─── */
     .featured-image { padding-top: 0; background: var(--bg); }
-    .framed-image {
-      max-width: 800px; margin: 0 auto; padding: 1.5rem;
-      background: var(--gallery-card); border: 1px solid var(--border);
-      box-shadow: 0 4px 20px rgba(44, 36, 32, 0.08);
-    }
+    .framed-image { max-width: 800px; margin: 0 auto; padding: 1.5rem; background: var(--gallery-card); border: 1px solid var(--border); box-shadow: 0 4px 20px rgba(44, 36, 32, 0.08); }
     .framed-image img { width: 100%; height: auto; display: block; }
     .image-caption { text-align: right; font-family: 'Cormorant Garamond', serif; font-size: 0.82rem; font-style: italic; color: var(--text-light); margin-top: 0.75rem; }
-
-    /* ─── JOURNAL ─── */
     #revista { background: var(--bg-warm); }
     .journal-entries { margin-top: 3rem; display: flex; flex-direction: column; gap: 1.5rem; }
     .journal-entry { padding: 1.75rem; border: 1px solid var(--border-light); border-radius: 2px; background: var(--bg); transition: border-color 0.3s ease; }
@@ -221,32 +82,17 @@
     .journal-tag { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-terracotta); margin-bottom: 0.5rem; }
     .journal-entry h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 400; color: var(--text-primary); margin-bottom: 0.4rem; }
     .journal-entry p { font-size: 0.85rem; color: var(--text-light); line-height: 1.6; }
-
-    /* ─── CONTACT ─── */
     #contact { background: var(--bg); text-align: center; }
     #contact .section-inner { display: flex; flex-direction: column; align-items: center; }
-    .contact-email {
-      font-family: 'Cormorant Garamond', serif; font-size: 1.15rem;
-      color: var(--accent-terracotta); text-decoration: none;
-      border-bottom: 1px solid transparent; transition: border-color 0.3s ease; margin-top: 1.5rem;
-    }
+    .contact-email { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; color: var(--accent-terracotta); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.3s ease; margin-top: 1.5rem; }
     .contact-email:hover { border-bottom-color: var(--accent-terracotta); }
     .contact-social { display: flex; gap: 2rem; margin-top: 2rem; list-style: none; }
     .contact-social a { font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-light); text-decoration: none; transition: color 0.25s ease; }
     .contact-social a:hover { color: var(--text-primary); }
-
-    /* ─── FOOTER ─── */
     footer { text-align: center; padding: 2.5rem 2rem; font-size: 0.72rem; letter-spacing: 0.06em; color: var(--text-light); border-top: 1px solid var(--border-light); }
-
-    /* ─── RESPONSIVE ─── */
     @media (max-width: 768px) {
       nav { padding: 1rem 1.5rem; }
-      .nav-links {
-        display: none; position: absolute; top: 100%; left: 0; right: 0;
-        flex-direction: column; background: rgba(250, 246, 241, 0.97);
-        backdrop-filter: blur(12px); padding: 1.5rem 2rem; gap: 1rem;
-        border-bottom: 1px solid var(--border-light);
-      }
+      .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; background: rgba(250, 246, 241, 0.97); backdrop-filter: blur(12px); padding: 1.5rem 2rem; gap: 1rem; border-bottom: 1px solid var(--border-light); }
       .nav-links.open { display: flex; }
       .nav-toggle { display: block; }
       section { padding: 4rem 1.5rem; }
@@ -259,31 +105,17 @@
       .story-bg-strip { width: 90px; opacity: 0.08; }
       .story-bg-fade { width: 100px; }
     }
-
-    /* ─── ANIMATIONS ─── */
     .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .fade-up.visible { opacity: 1; transform: translateY(0); }
   </style>
 </head>
 <body>
-
-  <!-- NAV -->
   <nav>
     <a href="#" class="nav-logo">
-      <svg class="nav-logo-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-        <g transform="translate(32,32)">
-          <ellipse cx="0" cy="0" rx="26" ry="26" fill="none" stroke="#C9593A" stroke-width="3" opacity="0.9" stroke-linecap="round"/>
-          <ellipse cx="0" cy="0" rx="26" ry="15" fill="none" stroke="#7BA768" stroke-width="3" opacity="0.85" stroke-linecap="round" transform="rotate(60)"/>
-          <ellipse cx="0" cy="0" rx="26" ry="15" fill="none" stroke="#D4A843" stroke-width="3" opacity="0.82" stroke-linecap="round" transform="rotate(120)"/>
-          <ellipse cx="0" cy="0" rx="22" ry="10" fill="none" stroke="#5B6AAF" stroke-width="2" opacity="0.6" stroke-linecap="round" transform="rotate(30)"/>
-          <ellipse cx="0" cy="0" rx="22" ry="10" fill="none" stroke="#D4874E" stroke-width="2" opacity="0.55" stroke-linecap="round" transform="rotate(90)"/>
-        </g>
-      </svg>
+      <svg class="nav-logo-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><g transform="translate(32,32)"><ellipse cx="0" cy="0" rx="26" ry="26" fill="none" stroke="#C9593A" stroke-width="3" opacity="0.9" stroke-linecap="round"/><ellipse cx="0" cy="0" rx="26" ry="15" fill="none" stroke="#7BA768" stroke-width="3" opacity="0.85" stroke-linecap="round" transform="rotate(60)"/><ellipse cx="0" cy="0" rx="26" ry="15" fill="none" stroke="#D4A843" stroke-width="3" opacity="0.82" stroke-linecap="round" transform="rotate(120)"/><ellipse cx="0" cy="0" rx="22" ry="10" fill="none" stroke="#5B6AAF" stroke-width="2" opacity="0.6" stroke-linecap="round" transform="rotate(30)"/><ellipse cx="0" cy="0" rx="22" ry="10" fill="none" stroke="#D4874E" stroke-width="2" opacity="0.55" stroke-linecap="round" transform="rotate(90)"/></g></svg>
       <span class="letter-k">K</span><span class="letter-o">o</span><span class="letter-m">m</span><span class="letter-a">a</span><span class="letter-r">r</span><span class="letter-i">i</span> Studios
     </a>
-    <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')"><span></span><span></span><span></span></button>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#galeria">Galería</a></li>
@@ -291,91 +123,51 @@
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
-
-  <!-- HERO -->
   <section class="hero">
     <div class="hero-brand">
-      <svg class="hero-logo-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-        <g transform="translate(32,32)">
-          <ellipse cx="0" cy="0" rx="26" ry="26" fill="none" stroke="#C9593A" stroke-width="2.5" opacity="0.9" stroke-linecap="round"/>
-          <ellipse cx="0" cy="0" rx="26" ry="15" fill="none" stroke="#7BA768" stroke-width="2.5" opacity="0.85" stroke-linecap="round" transform="rotate(60)"/>
-          <ellipse cx="0" cy="0" rx="26" ry="15" fill="none" stroke="#D4A843" stroke-width="2.5" opacity="0.82" stroke-linecap="round" transform="rotate(120)"/>
-          <ellipse cx="0" cy="0" rx="22" ry="10" fill="none" stroke="#5B6AAF" stroke-width="1.8" opacity="0.6" stroke-linecap="round" transform="rotate(30)"/>
-          <ellipse cx="0" cy="0" rx="22" ry="10" fill="none" stroke="#D4874E" stroke-width="1.8" opacity="0.55" stroke-linecap="round" transform="rotate(90)"/>
-        </g>
-      </svg>
-      <h1 class="hero-logotype">
-        <span class="letter-k">K</span><span class="letter-o">O</span><span class="letter-m">M</span><span class="letter-a">A</span><span class="letter-r">R</span><span class="letter-i">I</span>
-      </h1>
+      <svg class="hero-logo-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><g transform="translate(32,32)"><ellipse cx="0" cy="0" rx="26" ry="26" fill="none" stroke="#C9593A" stroke-width="2.5" opacity="0.9" stroke-linecap="round"/><ellipse cx="0" cy="0" rx="26" ry="15" fill="none" stroke="#7BA768" stroke-width="2.5" opacity="0.85" stroke-linecap="round" transform="rotate(60)"/><ellipse cx="0" cy="0" rx="26" ry="15" fill="none" stroke="#D4A843" stroke-width="2.5" opacity="0.82" stroke-linecap="round" transform="rotate(120)"/><ellipse cx="0" cy="0" rx="22" ry="10" fill="none" stroke="#5B6AAF" stroke-width="1.8" opacity="0.6" stroke-linecap="round" transform="rotate(30)"/><ellipse cx="0" cy="0" rx="22" ry="10" fill="none" stroke="#D4874E" stroke-width="1.8" opacity="0.55" stroke-linecap="round" transform="rotate(90)"/></g></svg>
+      <h1 class="hero-logotype"><span class="letter-k">K</span><span class="letter-o">O</span><span class="letter-m">M</span><span class="letter-a">A</span><span class="letter-r">R</span><span class="letter-i">I</span></h1>
       <p class="hero-studio">Studios</p>
       <p class="hero-vision">An independent creative studio focused on<br>mindful art, design, and storytelling.</p>
     </div>
     <span class="hero-scroll">Scroll</span>
   </section>
-
-  <!-- ABOUT -->
+  <!-- ABOUT: Playing Temari by Katsukawa Shuncho, c. 1780/1801, Art Institute of Chicago. Public Domain. -->
+  <!-- For production: replace data:image/jpeg;base64,... with Playing Temari.jpg -->
   <section id="about" class="story-section">
-    <!-- Woodblock print strip: right edge -->
     <div class="story-bg-strip">
       <img
-        src=" ('Playing Temari.jpg');
-        <p>
-          The name Komari is rooted in the Japanese craft of temari,
-          hand stitched thread balls first shaped over a thousand years ago
-          from remnants of silk kimonos. Wrapped, divided, and embroidered
-          with patient geometric care, each temari held the maker's
-          quiet wish for a brilliant life.
-        </p>
-        <p>
-          We carry that meaning forward. Komari, a small ball,
-          is a reminder of the world we share: a small sphere
-          in a vast universe, wrapped in varied cultures,
-          connected by common threads.
-        </p>
-        <p>
-          Komari Studios creates where art, design, and narrative
-          converge with purpose. We create, curate, and collaborate
-          with care, honoring the traditions and communities
-          that shape our work.
-        </p>
+        src="Playing Temari.jpg";
+      >
+    </div>
+    <div class="story-bg-fade"></div>
+    <div class="story-content fade-up">
+      <p class="section-label">Our Story</p>
+      <h2>A small ball. A whole world.</h2>
+      <div class="story-body">
+        <p>The name Komari is rooted in the Japanese craft of temari, hand stitched thread balls first shaped over a thousand years ago from remnants of silk kimonos. Wrapped, divided, and embroidered with patient geometric care, each temari held the maker's quiet wish for a brilliant life.</p>
+        <p>We carry that meaning forward. Komari, a small ball, is a reminder of the world we share: a small sphere in a vast universe, wrapped in varied cultures, connected by common threads.</p>
+        <p>Komari Studios creates where art, design, and narrative converge with purpose. We create, curate, and collaborate with care, honoring the traditions and communities that shape our work.</p>
       </div>
       <span class="kanji-mark" aria-hidden="true">小 鞠</span>
       <p class="story-attribution">
-        <a href="https://www.curationist.org/works/work-aioc-36644" target="_blank" rel="noopener noreferrer">
-          Katsukawa Shuncho, <em>Playing Temari</em>, c. 1780/1801. Art Institute of Chicago. Public Domain.
-        </a>
+        <a href="https://www.curationist.org/works/work-aioc-36644" target="_blank" rel="noopener noreferrer">Katsukawa Shuncho, <em>Playing Temari</em>, c. 1780/1801. Art Institute of Chicago. Public Domain.</a>
       </p>
     </div>
   </section>
-
-  <!-- GALERÍA -->
   <section id="galeria">
     <div class="section-inner fade-up">
       <p class="section-label">La Galería</p>
       <h2 class="section-title">Art Prints &amp; Limited Editions</h2>
       <p class="section-body">Archival quality prints and numbered editions of original works.</p>
       <div class="gallery-grid">
-        <div class="gallery-card">
-          <img src="cielo%20y%20flor.jpeg" alt="Cielo y Flor" class="gallery-img">
-          <div class="card-info"><span class="work-title">Cielo y Flor</span></div>
-        </div>
-        <div class="gallery-card">
-          <img src="flor%20naranja.jpeg" alt="Flor Naranja" class="gallery-img">
-          <div class="card-info"><span class="work-title">Flor Naranja</span></div>
-        </div>
-        <div class="gallery-card">
-          <img src="salio%20el%20sol.jpeg" alt="Salio el Sol" class="gallery-img">
-          <div class="card-info"><span class="work-title">Salio el Sol</span></div>
-        </div>
-        <div class="gallery-card">
-          <img src="DSC_5159.JPG" alt="Jose Torres, Seaside CA, 2026" class="gallery-img">
-          <div class="card-info"><span class="work-title">Arboles de Luz</span></div>
-        </div>
+        <div class="gallery-card"><img src="cielo%20y%20flor.jpeg" alt="Cielo y Flor" class="gallery-img"><div class="card-info"><span class="work-title">Cielo y Flor</span></div></div>
+        <div class="gallery-card"><img src="flor%20naranja.jpeg" alt="Flor Naranja" class="gallery-img"><div class="card-info"><span class="work-title">Flor Naranja</span></div></div>
+        <div class="gallery-card"><img src="salio%20el%20sol.jpeg" alt="Salio el Sol" class="gallery-img"><div class="card-info"><span class="work-title">Salio el Sol</span></div></div>
+        <div class="gallery-card"><img src="DSC_5159.JPG" alt="TaoHeXi, Seaside CA, 2026" class="gallery-img"><div class="card-info"><span class="work-title">Arboles de Luz</span></div></div>
       </div>
     </div>
   </section>
-
-  <!-- FEATURED IMAGE -->
   <section class="featured-image">
     <div class="section-inner fade-up">
       <div class="framed-image">
@@ -384,47 +176,27 @@
       </div>
     </div>
   </section>
-
-  <!-- REVISTA -->
   <section id="revista">
     <div class="section-inner fade-up">
       <p class="section-label">Revista</p>
       <h2 class="section-title">Stories &amp; Process</h2>
       <div class="journal-entries">
-        <div class="journal-entry">
-          <p class="journal-tag">Coming Soon</p>
-          <h3>Why We Make: On Mindful Practice</h3>
-          <p>On slowing down and creating with intention.</p>
-        </div>
-        <div class="journal-entry">
-          <p class="journal-tag">Coming Soon</p>
-          <h3>Building a Tiendita: From Idea to Shelf</h3>
-          <p>The story behind opening our little shop and the artists who inspire us.</p>
-        </div>
+        <div class="journal-entry"><p class="journal-tag">Coming Soon</p><h3>Why We Make: On Mindful Practice</h3><p>On slowing down and creating with intention.</p></div>
+        <div class="journal-entry"><p class="journal-tag">Coming Soon</p><h3>Building a Tiendita: From Idea to Shelf</h3><p>The story behind opening our little shop and the artists who inspire us.</p></div>
       </div>
     </div>
   </section>
-
-  <!-- CONTACT -->
   <section id="contact">
     <div class="section-inner fade-up">
       <h2 class="section-title">Say Hello</h2>
       <a href="mailto:holakomaristudios@gmail.com" class="contact-email">holakomaristudios@gmail.com</a>
-      <ul class="contact-social">
-        <li><a href="https://www.instagram.com/komaristudios" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-      </ul>
+      <ul class="contact-social"><li><a href="https://www.instagram.com/komaristudios" target="_blank" rel="noopener noreferrer">Instagram</a></li></ul>
     </div>
   </section>
-
-  <!-- FOOTER -->
   <footer>&copy; 2026 Komari Studios, LLC</footer>
-
-  <!-- SCROLL ANIMATION -->
   <script>
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
     }, { threshold: 0.15 });
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
   </script>
